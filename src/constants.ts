@@ -1,6 +1,9 @@
 import type { AgendaItem, Organizer, PreviousEdition, Speaker } from "./types";
-import kubefest2024 from "./images/kubefest-2024.webp";
-import kubefest2025 from "./images/kubefest-2025.webp";
+import kubefest2024 from "./images/editions/kubefest-2024.webp";
+import kubefest2025 from "./images/editions/kubefest-2025.webp";
+import marioEzquerro from "./images/people/mario-ezquerro.jpeg";
+import diegoCristobalHerreros from "./images/people/diego-cristobal.jpeg";
+import adrianBarrioAndres from "./images/people/adrian-barrio.jpeg";
 
 // Event date: February 21, 2026 at 9:00 AM (local time in Logroño, Spain - Europe/Madrid timezone)
 export const EVENT_DATE = new Date("2026-02-21T09:00:00+01:00");
@@ -136,18 +139,21 @@ export const PREVIOUS_EDITIONS: PreviousEdition[] = [
 
 export const ORGANIZERS: Organizer[] = [
   {
-    name: "Ana García",
-    role: "Director of Engineering @ TechRioja",
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuBINgIrMf3lFpF7CjthUWgGz6UYT5CEmCKZ7c7Zxjuei6z8OHm5UuyE-UA79g7GQydPf5RLqSoM-kzc8IOicv13sXCdOS0neLMirmITNzNBA9e9mXAqGR11wt8kGpakPdcc0y3dgwRkM-ZqIb4rhF01B1yPLb2xFGBw4tHVjSeIMTa4w2GpVBOc8PAAepH4YKj6MN_hdDlkmmDCI2kF6M14fIWUNlv7tAKRweDL_aOgJlHONeDtIft2jb6jj89pHjvOEJ7X_tYOpA",
+    name: "Adrián Barrio Andrés",
+    role: "Site Reliability Engineer @ Oracle",
+    image: adrianBarrioAndres.src,
+    link: "https://www.linkedin.com/in/adrianbarrio/",
   },
   {
-    name: "Carlos Ruiz",
-    role: "Senior DevOps @ WineTech",
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuAeot_gAS2NpKoqNqmwaZeiPW-FOGyDu8sOWoRzq7ME8JPNIx6k5Hqpcvq3GJXs7sYw1K_WJZDpdQeBwz8Vc0nGIdvOcnXqoLsCyOAKVxMuJ_dDP_buhbOxvZhoXz-GGUm0qfzArXJR2xUe9i1nJBP82BWyaD7cp10RIg0XUJNdITPy8gI5whmEcp3uZBmjIkszXNbFOe3y1jnr11q9G3za5s6nAViOO1dIYR77WDxPTsnDkMhEl1AfMVOiUXE68Ck3wpSSp-XOTw",
+    name: "Diego Cristobal Herreros",
+    role: "Sr. Site Reliability Engineer @ Oracle",
+    image: diegoCristobalHerreros.src,
+    link: "https://www.linkedin.com/in/diego-cristobal-herreros-60886a80/",
   },
   {
-    name: "Laura Mensi",
-    role: "Product Manager @ LogroSoft",
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuDfbCJxJJYFQnmUUNIdoqV3AgoNfBuA6EVq82e1GKDCJE4gTsxgzLoQ6QgUf0AJMyTVscVDkdk7z6_YCAiY5zcktRfr4mPkzje92LAxJX8oWRJQRM5T1u6-qty-QY8ogdUg8s-cSsONvibZ-SoB-UYHgeaBw6nBFATjkcIkClelvnK35uLMqey5iTJwql_gtYsMT1gpE2RV30Em2WwenozvvCkWr24pPXzNibfoidaUTuUU1TrEMr1wdKVz703Dlr217iw2C5Bl1A",
-  },
+    name: "Mario Ezquerro Sáenz",
+    role: "Sr. Unix System Administrator @ Bosonit",
+    image: marioEzquerro.src,
+    link: "https://www.linkedin.com/in/mario-ezquerro-s%C3%A1enz-a239b270/",
+  }
 ];

@@ -28,6 +28,7 @@ export interface Organizer {
   name: string;
   role: string;
   image: string;
+  link: string;
 }
 
 export interface SponsorIcon {
