@@ -9,9 +9,11 @@ import { TICKETS_URL } from '../constants';
         <div class="size-8 text-cncf-blue flex items-center justify-center">
           <span class="material-symbols-outlined text-4xl">deployed_code</span>
         </div>
-        <h2 class="text-slate-900 dark:text-white text-xl font-bold leading-tight tracking-[-0.015em] bg-clip-text hidden md:block">
-          KubeFest 2026
-        </h2>
+        <a href="/">
+          <h1 class="text-slate-900 dark:text-white text-xl font-bold leading-tight tracking-[-0.015em] bg-clip-text hidden md:block">
+            KubeFest 2026
+          </h1>
+        </a>
       </div>
       <div class="hidden md:flex flex-1 justify-center items-center gap-8">
         <nav class="flex items-center gap-6 px-4 py-2 bg-gray-100/50 dark:bg-white/5 rounded-full border border-gray-200 dark:border-white/10 backdrop-blur-sm">
@@ -121,6 +123,33 @@ import { TICKETS_URL } from '../constants';
   if (navbar) {
     window.addEventListener('scroll', handleScroll);
     handleScroll(); // Check initial state
+  }
+
+  // Handle hash links without updating URL
+  if (navbar) {
+    const nav = navbar.querySelector('nav');
+    if (nav) {
+      nav.addEventListener('click', (e) => {
+        const target = e.target as HTMLElement;
+        if (!target) return;
+        const link = target.closest('a[href^="#"]') as HTMLAnchorElement | null;
+        if (link) {
+          e.preventDefault();
+          const targetId = link.getAttribute('href')?.substring(1);
+          if (targetId) {
+            const targetElement = document.getElementById(targetId);
+            if (targetElement && navbar) {
+              const navbarHeight = navbar.offsetHeight;
+              const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
+              window.scrollTo({
+                top: targetPosition,
+                behavior: 'smooth'
+              });
+            }
+          }
+        }
+      });
+    }
   }
 </script>
 
