@@ -28,7 +28,7 @@ import { PREVIOUS_EDITIONS } from '../constants';
               style={{ backgroundImage: `url("${edition.image}")` }}
             ></div>
           </div>
-          <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/60 to-transparent rounded-xl flex flex-col justify-end p-6">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/50 to-transparent rounded-xl flex flex-col justify-end p-6">
             <div class="relative z-10">
               <span class={`inline-block px-3 py-1 ${edition.colorClass} backdrop-blur-md rounded-full text-xs font-bold text-white w-fit mb-2 shadow-sm`}>
                 {edition.year}
@@ -49,12 +49,12 @@ import { PREVIOUS_EDITIONS } from '../constants';
 
 <style>
   .edition-image {
-    filter: saturate(0.7);
+    filter: saturate(0.8);
     transition: filter 0.7s ease, transform 0.7s ease;
   }
   
   .group:hover .edition-image {
-    filter: saturate(1.1);
+    filter: saturate(1.3);
   }
 </style>
 
