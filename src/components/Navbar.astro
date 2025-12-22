@@ -1,5 +1,5 @@
 ---
-// Dark mode state will be managed client-side
+import { TICKETS_URL } from '../constants';
 ---
 
 <div class="sticky top-0 z-50 w-full bg-white/90 dark:bg-[#0B1120]/90 backdrop-blur-md border-b border-gray-200 dark:border-white/10 transition-all duration-300">
@@ -38,9 +38,9 @@
           <span class="material-symbols-outlined dark:hidden">dark_mode</span>
           <span class="material-symbols-outlined hidden dark:block">light_mode</span>
         </button>
-        <button class="hidden md:flex cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-6 bg-cncf-blue hover:bg-cncf-dark transition-all duration-300 hover:scale-105 text-white text-sm font-bold shadow-lg shadow-cncf-blue/20">
+        <a href={TICKETS_URL} target="_blank" rel="noopener noreferrer" class="hidden md:flex cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-6 bg-cncf-blue hover:bg-cncf-dark transition-all duration-300 hover:scale-105 text-white text-sm font-bold shadow-lg shadow-cncf-blue/20">
           <span class="truncate">Tickets</span>
-        </button>
+        </a>
         <div class="md:hidden text-slate-900 dark:text-white ml-2">
           <span class="material-symbols-outlined cursor-pointer text-3xl">menu</span>
         </div>

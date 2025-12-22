@@ -1,6 +1,6 @@
 ---
 import Reveal from './Reveal.astro';
-import { EVENT_DATE } from '../constants';
+import { EVENT_DATE, TICKETS_URL } from '../constants';
 
 const countdownItems = [
   { id: "countdown-days", val: "00", label: "Días" },
@@ -61,10 +61,10 @@ const eventDateISO = EVENT_DATE.toISOString();
           </div>
           
           <Reveal delay={0.5} className="relative flex flex-wrap gap-4 justify-center z-10 mt-6">
-            <button class="flex min-w-[160px] cursor-pointer items-center justify-center rounded-lg h-12 px-6 bg-cncf-blue hover:bg-cncf-dark transition-all hover:scale-105 hover:-translate-y-1 text-white text-base font-bold shadow-[0_4px_20px_rgba(0,134,255,0.4)]">
+            <a href={TICKETS_URL} target="_blank" rel="noopener noreferrer" class="flex min-w-[160px] cursor-pointer items-center justify-center rounded-lg h-12 px-6 bg-cncf-blue hover:bg-cncf-dark transition-all hover:scale-105 hover:-translate-y-1 text-white text-base font-bold shadow-[0_4px_20px_rgba(0,134,255,0.4)]">
               <span class="mr-2">Reservar entrada</span>
               <span class="material-symbols-outlined text-sm">arrow_forward</span>
-            </button>
+            </a>
           </Reveal>
         </div>
       </div>

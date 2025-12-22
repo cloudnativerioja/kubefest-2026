@@ -5,6 +5,9 @@ import kubefest2025 from "./images/kubefest-2025.webp";
 // Event date: February 21, 2026 at 9:00 AM (local time in Logroño, Spain - Europe/Madrid timezone)
 export const EVENT_DATE = new Date("2026-02-21T09:00:00+01:00");
 
+// Tickets/Registration link
+export const TICKETS_URL = "https://community.cncf.io/cloud-native-rioja/";
+
 export const SPEAKERS: Speaker[] = [
   {
     name: "Sarah Chen",
