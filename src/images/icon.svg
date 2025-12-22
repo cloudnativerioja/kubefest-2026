@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 220" role="img" aria-label="Icon">
+  <!-- Minimal, high-impact isometric mark -->
+  <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Outer hex (bold) -->
+    <path stroke-width="12"
+      d="M110 20
+         L185 65
+         L185 155
+         L110 200
+         L35 155
+         L35 65
+         Z" />
+
+    <!-- Inner isometric "cube" lines (slightly thinner) -->
+    <path stroke-width="10"
+      d="M110 55
+         L155 80
+         L155 140
+         L110 165
+         L65 140
+         L65 80
+         Z" />
+
+    <!-- Facet separators to add depth but keep it minimal -->
+    <path stroke-width="10" d="M110 55 L110 165" />
+    <path stroke-width="10" d="M65 80 L110 105 L155 80" />
+    <path stroke-width="10" d="M65 140 L110 115 L155 140" />
+  </g>
+</svg>
