@@ -30,10 +30,7 @@ import { ORGANIZERS } from '../constants';
           <h3 class="text-slate-900 dark:text-white font-bold text-lg mb-1 group-hover:text-cncf-blue transition-colors">
             {org.name}
           </h3>
-          <p class="text-sm text-gray-600 dark:text-gray-300 font-medium mb-1">{org.role}</p>
-          <span class={`text-xs font-bold uppercase tracking-wider mb-3 ${idx === 0 ? "text-cncf-blue bg-cncf-blue/10 px-3 py-1 rounded-full border border-cncf-blue/20" : "text-gray-500 dark:text-gray-400 group-hover:text-secondary transition-colors"}`}>
-            {org.title}
-          </span>
+          <p class="text-sm text-gray-600 dark:text-gray-300 font-medium">{org.role}</p>
         </a>
       ))}
     </Reveal>

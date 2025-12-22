@@ -9,16 +9,21 @@ import { PREVIOUS_EDITIONS } from '../constants';
       <h2 class="text-slate-900 dark:text-white text-4xl font-bold leading-tight tracking-[-0.015em]">
         Ediciones Anteriores
       </h2>
-      <a href="#" class="text-cncf-blue text-sm font-bold flex items-center hover:underline hover:text-secondary transition-colors">
-        Ver galería completa <span class="material-symbols-outlined text-sm ml-1">chevron_right</span>
+      <a href="https://community.cncf.io/cloud-native-rioja/" target="_blank" rel="noopener noreferrer" class="text-cncf-blue text-sm font-bold flex items-center hover:underline hover:text-secondary transition-colors">
+        Ver más eventos de la comunidad <span class="material-symbols-outlined text-sm ml-1">chevron_right</span>
       </a>
     </Reveal>
     
     <Reveal mode="children" className="grid grid-cols-1 md:grid-cols-2 gap-6 px-4">
       {PREVIOUS_EDITIONS.map((edition, idx) => (
-        <div class="group relative overflow-hidden rounded-xl aspect-video cursor-pointer shadow-lg hover:shadow-2xl hover:shadow-cncf-blue/20 transition-all duration-500">
+        <a 
+          href={edition.link}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="group relative overflow-hidden rounded-xl aspect-video cursor-pointer shadow-lg hover:shadow-2xl hover:shadow-cncf-blue/20 transition-all duration-500"
+        >
           <div
-            class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+            class="edition-image absolute inset-0 bg-cover bg-center transition-all duration-700 group-hover:scale-110"
             style={{ backgroundImage: `url("${edition.image}")` }}
           ></div>
           <div class="absolute inset-0 bg-gradient-to-t from-background-dark/90 via-background-dark/40 to-transparent flex flex-col justify-end p-6">
@@ -26,15 +31,26 @@ import { PREVIOUS_EDITIONS } from '../constants';
               {edition.year}
             </span>
             <h3 class="text-white text-2xl font-bold leading-tight group-hover:text-cncf-blue transition-colors">
-              {edition.city}
+              {edition.name} {edition.year}
             </h3>
             <p class="text-gray-300 text-sm mt-1 flex items-center gap-1">
-              <span class="material-symbols-outlined text-sm">location_on</span> {edition.venue}
+              <span class="material-symbols-outlined text-sm">location_on</span> {edition.location}
             </p>
           </div>
-        </div>
+        </a>
       ))}
     </Reveal>
   </div>
 </div>
+
+<style>
+  .edition-image {
+    filter: saturate(0.4);
+    transition: filter 0.7s ease, transform 0.7s ease;
+  }
+  
+  .group:hover .edition-image {
+    filter: saturate(1.1);
+  }
+</style>
 

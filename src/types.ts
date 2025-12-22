@@ -17,16 +17,16 @@ export interface AgendaItem {
 
 export interface PreviousEdition {
   year: string;
-  city: string;
-  venue: string;
+  name: string;
+  location: string;
   image: string;
   colorClass: string;
+  link: string;
 }
 
 export interface Organizer {
   name: string;
   role: string;
-  title: string;
   image: string;
 }
 

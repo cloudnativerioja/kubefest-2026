@@ -1,4 +1,6 @@
 import type { AgendaItem, Organizer, PreviousEdition, Speaker } from "./types";
+import kubefest2024 from "./images/kubefest-2024.webp";
+import kubefest2025 from "./images/kubefest-2025.webp";
 
 // Event date: February 21, 2026 at 9:00 AM (local time in Logroño, Spain - Europe/Madrid timezone)
 export const EVENT_DATE = new Date("2026-02-21T09:00:00+01:00");
@@ -51,7 +53,7 @@ export const SPEAKERS: Speaker[] = [
 export const AGENDA: AgendaItem[] = [
   {
     time: "09:00",
-    period: "min",
+    period: "AM",
     title: "Bienvenida y Apertura",
     subtitle: "Organización KubeFest",
   },
@@ -62,13 +64,6 @@ export const AGENDA: AgendaItem[] = [
     title: "Estado de la IA en Infraestructura",
     subtitle: "Visiones futuras: Cómo Kubernetes impulsa la revolución de la Inteligencia Artificial.",
     speaker: SPEAKERS[0], // Sarah Chen
-  },
-  {
-    time: "",
-    period: "min", // Represents break
-    title: "Pausa para el café (30 min)",
-    subtitle: "",
-    isBreak: true,
   },
   {
     time: "10:45",
@@ -120,17 +115,19 @@ export const AGENDA: AgendaItem[] = [
 export const PREVIOUS_EDITIONS: PreviousEdition[] = [
   {
     year: "2024",
-    city: "KubeFest Madrid",
-    venue: "Palacio de Congresos",
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuBM8Vjjr2TrWrVWDDWIrZ8k-eTesEhWy-FuEBtu-apz7wMgd13TCdzir3EvjmnGi2Cr8Qm1jorC2ObfLbtOuuXuWO_6HS-J5vaz7wjbjvcZ4ZCOGou50fFD3oSCjnsjYzQ1hjczzW5A1WuKNQNv32-wC7-JU80GnS2Fyqd8IVBW2bWqj0v1yjOqBcJY_54rhWQ0FpmwP0i_RA7stmhRNTmcnISXv_7XjkLEpiy39B6R-6Y_npSCQG_6BKUNI48KNLVLEOVXzHsRFg",
+    name: "KubeFest",
+    location: "Logroño (Federación de Empresas de La Rioja)",
+    image: kubefest2024.src,
     colorClass: "bg-cncf-blue/80",
+    link: "https://2024.kubefest.com/",
   },
   {
     year: "2025",
-    city: "KubeFest Valencia",
-    venue: "Ciudad de las Artes",
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuCrQAsYiKPvQEOFPZxFUpn4UnkpIlLJoTcFZoQF9Rrt209DT8FpRwCJ9BCy0c8yAZv5WtBsNMzZI0fdTHozjOrbj0Mpy__kNG3ruWnwqD_QHA4fzBRtjzAoUMMPMx4P3eawxOpZuICClZzWD2_luIQb2O95n6E6r7f2h2U-9GbuW3Y5C2lu8Je46ZHrvRuYXH_zlseM--gck8XXspCTasD_mySgH-_cTFKCCjiRdIFc-22njlsAfA6_DRr8eMeP6mssYBknm6QwLg",
+    name: "KubeFest",
+    location: "Logroño (La Barra de SDi)",
+    image: kubefest2025.src,
     colorClass: "bg-secondary/80",
+    link: "https://2025.kubefest.com/",
   },
 ];
 
@@ -138,19 +135,16 @@ export const ORGANIZERS: Organizer[] = [
   {
     name: "Ana García",
     role: "Director of Engineering @ TechRioja",
-    title: "General Chair",
     image: "https://lh3.googleusercontent.com/aida-public/AB6AXuBINgIrMf3lFpF7CjthUWgGz6UYT5CEmCKZ7c7Zxjuei6z8OHm5UuyE-UA79g7GQydPf5RLqSoM-kzc8IOicv13sXCdOS0neLMirmITNzNBA9e9mXAqGR11wt8kGpakPdcc0y3dgwRkM-ZqIb4rhF01B1yPLb2xFGBw4tHVjSeIMTa4w2GpVBOc8PAAepH4YKj6MN_hdDlkmmDCI2kF6M14fIWUNlv7tAKRweDL_aOgJlHONeDtIft2jb6jj89pHjvOEJ7X_tYOpA",
   },
   {
     name: "Carlos Ruiz",
     role: "Senior DevOps @ WineTech",
-    title: "Program Lead",
     image: "https://lh3.googleusercontent.com/aida-public/AB6AXuAeot_gAS2NpKoqNqmwaZeiPW-FOGyDu8sOWoRzq7ME8JPNIx6k5Hqpcvq3GJXs7sYw1K_WJZDpdQeBwz8Vc0nGIdvOcnXqoLsCyOAKVxMuJ_dDP_buhbOxvZhoXz-GGUm0qfzArXJR2xUe9i1nJBP82BWyaD7cp10RIg0XUJNdITPy8gI5whmEcp3uZBmjIkszXNbFOe3y1jnr11q9G3za5s6nAViOO1dIYR77WDxPTsnDkMhEl1AfMVOiUXE68Ck3wpSSp-XOTw",
   },
   {
     name: "Laura Mensi",
     role: "Product Manager @ LogroSoft",
-    title: "Logistics",
     image: "https://lh3.googleusercontent.com/aida-public/AB6AXuDfbCJxJJYFQnmUUNIdoqV3AgoNfBuA6EVq82e1GKDCJE4gTsxgzLoQ6QgUf0AJMyTVscVDkdk7z6_YCAiY5zcktRfr4mPkzje92LAxJX8oWRJQRM5T1u6-qty-QY8ogdUg8s-cSsONvibZ-SoB-UYHgeaBw6nBFATjkcIkClelvnK35uLMqey5iTJwql_gtYsMT1gpE2RV30Em2WwenozvvCkWr24pPXzNibfoidaUTuUU1TrEMr1wdKVz703Dlr217iw2C5Bl1A",
   },
 ];
