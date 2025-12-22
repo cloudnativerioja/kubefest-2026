@@ -1,5 +1,8 @@
 import type { AgendaItem, Organizer, PreviousEdition, Speaker } from "./types";
 
+// Event date: February 21, 2026 at 9:00 AM (local time in Logroño, Spain - Europe/Madrid timezone)
+export const EVENT_DATE = new Date("2026-02-21T09:00:00+01:00");
+
 export const SPEAKERS: Speaker[] = [
   {
     name: "Sarah Chen",
