@@ -1,0 +1,40 @@
+---
+import Reveal from './Reveal.astro';
+import { PREVIOUS_EDITIONS } from '../constants';
+---
+
+<div class="flex flex-1 justify-center py-12 px-4 md:px-0 bg-transparent transition-colors duration-300" id="ediciones">
+  <div class="flex flex-col max-w-[960px] flex-1 w-full">
+    <Reveal className="flex flex-col items-center justify-center text-center px-4 pb-10 pt-5 gap-4">
+      <h2 class="text-slate-900 dark:text-white text-4xl font-bold leading-tight tracking-[-0.015em]">
+        Ediciones Anteriores
+      </h2>
+      <a href="#" class="text-cncf-blue text-sm font-bold flex items-center hover:underline hover:text-secondary transition-colors">
+        Ver galería completa <span class="material-symbols-outlined text-sm ml-1">chevron_right</span>
+      </a>
+    </Reveal>
+    
+    <Reveal mode="children" className="grid grid-cols-1 md:grid-cols-2 gap-6 px-4">
+      {PREVIOUS_EDITIONS.map((edition, idx) => (
+        <div class="group relative overflow-hidden rounded-xl aspect-video cursor-pointer shadow-lg hover:shadow-2xl hover:shadow-cncf-blue/20 transition-all duration-500">
+          <div
+            class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+            style={{ backgroundImage: `url("${edition.image}")` }}
+          ></div>
+          <div class="absolute inset-0 bg-gradient-to-t from-background-dark/90 via-background-dark/40 to-transparent flex flex-col justify-end p-6">
+            <span class={`inline-block px-3 py-1 ${edition.colorClass} backdrop-blur-md rounded-full text-xs font-bold text-white w-fit mb-2 shadow-sm`}>
+              {edition.year}
+            </span>
+            <h3 class="text-white text-2xl font-bold leading-tight group-hover:text-cncf-blue transition-colors">
+              {edition.city}
+            </h3>
+            <p class="text-gray-300 text-sm mt-1 flex items-center gap-1">
+              <span class="material-symbols-outlined text-sm">location_on</span> {edition.venue}
+            </p>
+          </div>
+        </div>
+      ))}
+    </Reveal>
+  </div>
+</div>
+

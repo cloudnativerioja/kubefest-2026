@@ -1,0 +1,34 @@
+# Logs
+logs
+*.log
+lerna-debug.log*
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Node/Yarn/Pnpm
+node_modules
+.pnpm-store/
+*.local
+
+# Build output
+dist
+dist-ssr
+
+# Playwright/Caching/Framework
+.playwright-mcp/
+.astro
+
+# Editor directories and files
+.DS_Store
+.idea
+.vscode/*
+!.vscode/extensions.json
+
+# Visual Studio/JetBrains project files
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?

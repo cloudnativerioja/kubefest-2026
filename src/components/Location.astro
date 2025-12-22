@@ -1,0 +1,60 @@
+---
+import Reveal from './Reveal.astro';
+---
+
+<div class="flex flex-1 justify-center py-16 px-4 md:px-0 bg-gray-50 dark:bg-card-dark/20 transition-colors duration-300" id="ubicacion">
+  <div class="flex flex-col max-w-[1024px] flex-1 w-full">
+    <Reveal className="px-4 pb-12 text-center">
+      <h2 class="text-slate-900 dark:text-white text-4xl font-bold leading-tight tracking-[-0.015em] mb-4">
+        Cómo Llegar
+      </h2>
+      <p class="text-gray-500 dark:text-gray-400 mt-3 max-w-2xl mx-auto text-lg">
+        Nos vemos en el corazón tecnológico de Logroño.
+      </p>
+    </Reveal>
+
+    <Reveal className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 px-4 items-stretch">
+      <div class="flex flex-col gap-6 justify-center">
+        <div class="flex items-start gap-4 p-4 bg-white dark:bg-card-dark rounded-xl border border-gray-100 dark:border-white/5 shadow-sm">
+          <span class="material-symbols-outlined text-cncf-blue text-3xl shrink-0">location_on</span>
+          <div>
+            <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-1">Dirección del Evento</h3>
+            <p class="text-gray-600 dark:text-gray-300 font-medium">IR Soluciones</p>
+            <p class="text-gray-500 dark:text-gray-400 text-sm">C. Valdegastea, 2, 26007</p>
+            <p class="text-gray-500 dark:text-gray-400 text-sm">Logroño, La Rioja</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-4 p-4 bg-white dark:bg-card-dark rounded-xl border border-gray-100 dark:border-white/5 shadow-sm">
+          <span class="material-symbols-outlined text-secondary text-3xl shrink-0">directions_bus</span>
+          <div>
+            <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-1">Transporte Público</h3>
+            <p class="text-gray-600 dark:text-gray-300 text-sm">
+              Líneas de autobús 2, 5 y 10 tienen paradas cercanas en Av. de Burgos.
+              Desde la estación de tren, puedes tomar un taxi (10 min) o el bus línea 10.
+            </p>
+          </div>
+        </div>
+        <div class="flex items-start gap-4 p-4 bg-white dark:bg-card-dark rounded-xl border border-gray-100 dark:border-white/5 shadow-sm">
+          <span class="material-symbols-outlined text-green-500 text-3xl shrink-0">local_parking</span>
+          <div>
+            <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-1">Aparcamiento</h3>
+            <p class="text-gray-600 dark:text-gray-300 text-sm">
+              Zona de aparcamiento gratuito disponible en los alrededores del edificio y calles adyacentes del polígono.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="w-full h-80 md:h-full min-h-[320px] rounded-2xl overflow-hidden shadow-lg border-2 border-white dark:border-white/10 relative">
+        <iframe
+          allowFullScreen
+          class="w-full h-full map-filter"
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2979.9149727460143!2d-2.4635669234850596!3d42.4646700711833!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd507646b8555555%3A0x1b2b8b8b8b8b8b8b!2sC.%20Valdegastea%2C%202%2C%2026007%20Logro%C3%B1o%2C%20La%20Rioja!5e0!3m2!1ses!2ses!4v1709664000000!5m2!1ses!2ses"
+        ></iframe>
+      </div>
+    </Reveal>
+  </div>
+</div>
+
+

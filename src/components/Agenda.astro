@@ -1,0 +1,139 @@
+---
+import Reveal from './Reveal.astro';
+import { AGENDA } from '../constants';
+---
+
+<div
+  class="flex flex-1 justify-center py-20 px-4 md:px-0 bg-gradient-to-b from-white to-gray-50 dark:from-[#0B1120] dark:to-[#111827] transition-colors duration-300 relative overflow-hidden"
+  id="agenda"
+>
+  <div class="absolute top-0 right-0 w-96 h-96 bg-cncf-blue/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+  <div class="absolute bottom-0 left-0 w-96 h-96 bg-secondary/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2"></div>
+  <div class="flex flex-col max-w-[1024px] flex-1 w-full z-10">
+    <Reveal className="px-4 mb-14 text-center">
+      <h2 class="text-slate-900 dark:text-white text-4xl font-black leading-tight tracking-[-0.02em]">
+        Agenda de Innovación
+      </h2>
+      <p class="text-gray-500 dark:text-gray-400 mt-4 max-w-2xl mx-auto text-lg">
+        Un programa intensivo sobre Kubernetes e IA.
+      </p>
+    </Reveal>
+
+    <Reveal mode="children" className="relative px-4 flex flex-col gap-4 max-w-4xl mx-auto w-full">
+      {AGENDA.map((item, idx) => {
+        if (item.isBreak) {
+          return (
+            <div class="flex flex-row gap-4 p-4 bg-gray-50 dark:bg-gray-900/20 rounded-xl border border-transparent items-center justify-center text-center">
+              <span class="material-symbols-outlined text-gray-400/70 dark:text-gray-600/70">coffee</span>
+              <span class="font-bold text-gray-400/80 dark:text-gray-500/80 text-sm uppercase tracking-wide">
+                {item.title}
+              </span>
+            </div>
+          );
+        }
+
+        if (item.period === "END") {
+          return (
+            <div class="flex flex-row gap-4 p-4 md:p-6 bg-gradient-to-r from-cncf-blue/10 to-secondary/10 rounded-xl border border-cncf-blue/20 items-center">
+              <div class="min-w-[80px] md:min-w-[100px] text-right pr-4 border-r border-gray-200 dark:border-white/10">
+                <span class="block text-xl md:text-2xl font-bold text-slate-900 dark:text-white">{item.time}</span>
+                <span class="text-xs font-bold text-gray-400 uppercase">{item.period}</span>
+              </div>
+              <div class="flex-1">
+                <h3 class="text-lg md:text-xl font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                  <span class="material-symbols-outlined text-secondary">handshake</span>
+                  {item.title}
+                </h3>
+                <p class="text-sm text-gray-500 dark:text-gray-400">{item.subtitle}</p>
+              </div>
+            </div>
+          );
+        }
+        
+        // Standard item styles
+        let typeColor = "text-cncf-blue";
+        let bgType = "bg-cncf-blue/10";
+        let borderType = "border-cncf-blue/20";
+        let hoverBorder = "hover:border-cncf-blue/30 dark:hover:border-cncf-blue/30";
+        let hoverText = "group-hover:text-cncf-blue";
+        
+        if (item.type === "Security") {
+          typeColor = "text-secondary";
+          bgType = "bg-secondary/10";
+          borderType = "border-secondary/20";
+          hoverBorder = "hover:border-secondary/30 dark:hover:border-secondary/30";
+          hoverText = "group-hover:text-secondary";
+        } else if (item.type === "Scaling") {
+          typeColor = "text-cncf-dark dark:text-cncf-light";
+          bgType = "bg-cncf-light/10";
+          borderType = "border-cncf-light/20";
+          hoverBorder = "hover:border-cncf-light/30 dark:hover:border-cncf-light/30";
+          hoverText = "group-hover:text-cncf-light";
+        } else if (item.type === "Architecture") {
+          typeColor = "text-accent-pink";
+          bgType = "bg-accent-pink/10";
+          borderType = "border-accent-pink/20";
+          hoverBorder = "hover:border-accent-pink/30 dark:hover:border-accent-pink/30";
+          hoverText = "group-hover:text-accent-pink";
+        }
+
+        const isSimple = !item.type;
+
+        if (isSimple) {
+          return (
+            <div class="flex flex-row gap-4 p-4 md:p-6 bg-white dark:bg-card-dark rounded-xl border-l-4 border-cncf-blue shadow-sm items-center">
+              <div class="min-w-[80px] md:min-w-[100px] text-right pr-4 border-r border-gray-100 dark:border-white/10">
+                <span class="block text-xl md:text-2xl font-bold text-slate-900 dark:text-white">{item.time}</span>
+                <span class="text-xs font-bold text-gray-400 uppercase">{item.period}</span>
+              </div>
+              <div class="flex-1">
+                <h3 class="text-lg md:text-xl font-bold text-slate-900 dark:text-white">{item.title}</h3>
+                <p class="text-sm text-gray-500 dark:text-gray-400">{item.subtitle}</p>
+              </div>
+            </div>
+          );
+        }
+
+        return (
+          <div class={`group relative flex flex-col md:flex-row gap-6 p-6 md:p-8 bg-white dark:bg-card-dark rounded-2xl border border-gray-200 dark:border-white/5 ${hoverBorder} transition-all duration-300 hover:shadow-xl hover:-translate-y-1`}>
+            <div class="flex flex-row md:flex-col items-center md:items-start md:justify-center gap-3 md:gap-1 min-w-[120px] border-b md:border-b-0 md:border-r border-gray-100 dark:border-white/5 pb-4 md:pb-0 md:pr-8">
+              <span class={`text-3xl font-bold ${typeColor} font-display`}>{item.time}</span>
+              <span class="text-xs font-bold text-gray-400 uppercase tracking-widest">{item.period}</span>
+            </div>
+            <div class="flex flex-col flex-1 gap-3">
+              <div class="flex items-center justify-between">
+                <span class={`px-3 py-1 rounded-full text-[10px] font-bold tracking-wider uppercase ${bgType} ${typeColor} border ${borderType}`}>
+                  {item.type}
+                </span>
+              </div>
+              <div>
+                <h3 class={`text-xl md:text-2xl font-bold text-slate-900 dark:text-white ${hoverText} transition-colors`}>
+                  {item.title}
+                </h3>
+                <p class="text-gray-600 dark:text-gray-400 text-sm md:text-base mt-2 leading-relaxed">
+                  {item.subtitle}
+                </p>
+              </div>
+              {item.speaker && (
+                <div class="flex items-center gap-3 mt-2">
+                  <img
+                    src={item.speaker.image}
+                    alt={item.speaker.name}
+                    class="w-10 h-10 rounded-full border-2 border-white dark:border-card-dark shadow-sm object-cover"
+                  />
+                  <div class="flex flex-col">
+                    <span class="text-sm font-bold text-slate-900 dark:text-white leading-none">
+                      {item.speaker.name}
+                    </span>
+                    <span class="text-xs text-gray-500 dark:text-gray-400 mt-1">{item.speaker.company}</span>
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
+        );
+      })}
+    </Reveal>
+  </div>
+</div>
+

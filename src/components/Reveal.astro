@@ -1,0 +1,41 @@
+---
+interface Props {
+  children: any;
+  className?: string;
+  delay?: number;
+  mode?: "fade" | "children";
+}
+
+const { children, className = "", delay = 0, mode = "fade" } = Astro.props;
+const baseClass = mode === "fade" ? "reveal" : "reveal-children";
+const revealId = `reveal-${Math.random().toString(36).substr(2, 9)}`;
+---
+
+<div class={`${baseClass} ${className}`} data-reveal-id={revealId} data-delay={delay.toString()}>
+  <slot />
+</div>
+
+<script define:vars={{ revealId, delay }}>
+  const revealElement = document.querySelector(`[data-reveal-id="${revealId}"]`);
+  if (!revealElement) return;
+
+  const delayValue = parseFloat(revealElement.getAttribute('data-delay') || '0');
+  if (delayValue > 0 && revealElement instanceof HTMLElement) {
+    revealElement.style.transitionDelay = `${delayValue}s`;
+  }
+
+  const observer = new IntersectionObserver(
+    ([entry]) => {
+      if (entry.isIntersecting) {
+        revealElement.classList.add('active');
+        observer.unobserve(entry.target);
+      }
+    },
+    {
+      threshold: 0.15,
+      rootMargin: "0px 0px -50px 0px",
+    }
+  );
+
+  observer.observe(revealElement);
+</script>

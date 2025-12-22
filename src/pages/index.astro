@@ -1,0 +1,33 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Hero from '../components/Hero.astro';
+import Editions from '../components/Editions.astro';
+import Speakers from '../components/Speakers.astro';
+import Award from '../components/Award.astro';
+import Agenda from '../components/Agenda.astro';
+import Sponsors from '../components/Sponsors.astro';
+import Organizers from '../components/Organizers.astro';
+import Location from '../components/Location.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout>
+  <div class="relative flex min-h-screen w-full flex-col group/design-root font-display bg-background-light dark:bg-background-dark text-slate-900 dark:text-white antialiased overflow-x-hidden transition-colors duration-300">
+    <Navbar />
+    
+    <div class="layout-container flex h-full grow flex-col">
+      <Hero />
+      <Editions />
+      <Speakers />
+      <Award />
+      <Agenda />
+      <Sponsors />
+      <Organizers />
+      <Location />
+      <Footer />
+    </div>
+  </div>
+</Layout>
+
+
