@@ -21,14 +21,16 @@ import Reveal from './Reveal.astro';
           </span>{" "}
           2026
         </h2>
-        <div class="max-w-prose">
-          <p class="text-gray-600 dark:text-gray-300 text-lg leading-relaxed mb-8">
+        <div class="max-w-prose space-y-4">
+          <p class="text-gray-600 dark:text-gray-300 text-lg leading-relaxed">
             Este galardón anual destaca a un líder excepcional de la comunidad local en Logroño.
-            <br class="hidden md:block" />
             Celebramos a quienes impulsan la Infraestructura y la IA en La Rioja, fomentando el aprendizaje compartido.
           </p>
+          <p class="text-gray-600 dark:text-gray-300 text-base leading-relaxed">
+            El premio 2026 se otorgará sin proceso de nominaciones. El equipo de KubeFest seleccionará directamente a la persona reconocida según los criterios públicos.
+          </p>
         </div>
-        <div class="flex flex-wrap justify-center md:justify-start gap-4">
+        <div class="flex flex-wrap justify-center md:justify-start gap-4 mt-4">
           <button
             class="flex items-center justify-center rounded-lg h-12 px-6 bg-secondary hover:bg-[#b01b78] transition-all hover:scale-105 hover:-translate-y-1 text-white text-base font-bold shadow-[0_4px_20px_rgba(214,34,147,0.3)]"
             data-open-modal="local-expert"
@@ -36,12 +38,6 @@ import Reveal from './Reveal.astro';
             <span class="mr-2">Ver criterios</span>
             <span class="material-symbols-outlined text-sm">list_alt</span>
           </button>
-          <a
-            href="mailto:info@kubefest.com?subject=Nominar%20Local%20Expert%202026&body=Hola%20equipo%20de%20KubeFest%2C%0A%0AQuiero%20nominar%20a%3A%0A-%20Nombre%3A%0A-%20Rol/Empresa%3A%0A-%20Enlace%20de%20perfil%3A%0A%0AImpacto%20y%20contribuci%C3%B3n%20(Resumir%20logros%20en%20comunidad%20Cloud%20Native%20/%20IA)%3A%0A- %0A%0AColaboraci%C3%B3n%20local%20en%20La%20Rioja%3A%0A- %0A%0AGracias%2C"
-            class="flex items-center justify-center rounded-lg h-12 px-6 bg-white dark:bg-card-dark border border-gray-200 dark:border-white/10 text-slate-700 dark:text-white text-base font-bold transition-all hover:bg-gray-50 dark:hover:bg-white/5"
-          >
-            Nominar candidato
-          </a>
         </div>
       </div>
       <div class="w-full md:w-1/2 relative">
@@ -56,7 +52,9 @@ import Reveal from './Reveal.astro';
               El ganador será anunciado durante la ceremonia de apertura.
             </p>
             <div class="w-full h-2 bg-gray-200 dark:bg-white/10 rounded-full overflow-hidden">
-              <div class="h-full bg-gradient-to-r from-secondary to-accent-pink w-3/4 rounded-full animate-pulse"></div>
+              <div class="relative h-full w-3/4 rounded-full bg-gradient-to-r from-secondary to-accent-pink">
+                <div class="progress-sheen"></div>
+              </div>
             </div>
             <p class="text-xs text-secondary font-bold mt-3 uppercase tracking-wider">Anuncio Pendiente</p>
           </div>
@@ -99,6 +97,9 @@ import Reveal from './Reveal.astro';
       <p class="text-sm leading-relaxed">
         Reconocemos a quienes elevan la comunidad Cloud Native en La Rioja. Buscamos perfiles que combinen
         impacto técnico y generosidad al compartir conocimiento.
+      </p>
+      <p class="text-sm leading-relaxed text-secondary font-semibold">
+        No habrá nominaciones abiertas: el jurado interno seleccionará directamente a la persona galardonada en base a estos criterios.
       </p>
       <ul class="space-y-3">
         <li class="flex gap-3">
@@ -183,5 +184,30 @@ import Reveal from './Reveal.astro';
 
   attachCloseListeners();
 </script>
+
+<style>
+  .progress-sheen {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      120deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.4) 50%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    background-size: 200% 100%;
+    animation: progress-shimmer 3s linear infinite;
+    mix-blend-mode: screen;
+  }
+
+  @keyframes progress-shimmer {
+    0% {
+      background-position: -200% 0;
+    }
+    100% {
+      background-position: 200% 0;
+    }
+  }
+</style>
 
 
