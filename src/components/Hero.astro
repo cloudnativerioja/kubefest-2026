@@ -1,6 +1,8 @@
 ---
 import Reveal from './Reveal.astro';
 import { EVENT_DATE, TICKETS_URL } from '../constants';
+import { Image } from 'astro:assets';
+import heroBg from '../images/misc/servers.jpg';
 
 const countdownItems = [
   { id: "countdown-days", val: "00", label: "Días" },
@@ -18,12 +20,22 @@ const eventDateISO = EVENT_DATE.toISOString();
     <div class="@container">
       <div class="@[480px]:p-4">
         <div
-          class="hero-bg relative flex min-h-[640px] flex-col gap-6 overflow-hidden rounded-xl items-center justify-center p-8 text-center bg-cover bg-center"
-          style={{
-            backgroundImage:
-              'linear-gradient(135deg, rgba(11, 17, 32, 0.85) 0%, rgba(0, 71, 141, 0.7) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuCKorcoiHefL5Q6UNSYq5q8W57dyqvnYXV-sc67R_ZyUL496PcuLiN3wheKVMjf5fLivActR5qN33MX9DnUGsnknOjZPA2aSw84XNnbYfwjynUA9938Xuv0beLLDVz5Uon9m_M-34_wmu5vQ539Hi2ELoGTnrcfeRvtj26eGpstAhvgWGQMRTUgUGmZ9-93wRwSIhgHpcmeaoLswNns_07caBtIlsmQSizBy2Tx5fNB77cbNB1STI5PLvf8bAuUPvSvmLK5tZ66RA")',
-          }}
+            class="hero-bg relative flex min-h-[640px] flex-col gap-6 overflow-hidden rounded-xl items-center justify-center p-8 text-center"
         >
+            <Image
+              src={heroBg}
+              alt=""
+              class="absolute inset-0 h-full w-full object-cover"
+              loading="eager"
+              aria-hidden="true"
+            />
+            <div
+              class="absolute inset-0"
+              style={{
+                background:
+                  'linear-gradient(135deg, rgba(11, 17, 32, 0.82) 0%, rgba(0, 71, 141, 0.65) 100%)',
+              }}
+            ></div>
           <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-cncf-blue/20 blur-[120px] rounded-full pointer-events-none animate-pulse-slow"></div>
           <div class="relative flex flex-col gap-4 z-10 max-w-3xl animate-fade-in-up">
             <a
