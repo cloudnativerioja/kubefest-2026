@@ -1,5 +1,7 @@
 ---
 import Reveal from './Reveal.astro';
+import googleLogo from '../images/sponsors/google.svg';
+import irSolucionesLogo from '../images/sponsors/ir-soluciones.svg';
 ---
 
 <div class="flex flex-1 justify-center py-16 px-4 md:px-0 bg-gradient-to-b from-gray-50 to-white dark:from-[#0B1120] dark:to-[#0f172a] transition-colors duration-300" id="sponsors">
@@ -14,18 +16,24 @@ import Reveal from './Reveal.astro';
     <Reveal mode="children" className="w-full flex flex-col items-center gap-8 md:gap-12 px-4">
       <!-- Main Sponsors -->
       <div class="flex flex-wrap justify-center items-center gap-8 md:gap-12 w-full">
-        <div class="h-28 w-56 p-4 bg-white dark:bg-card-dark rounded-2xl flex items-center justify-center border border-gray-200 dark:border-white/5 hover:border-cncf-blue/50 dark:hover:border-cncf-blue hover:shadow-xl dark:hover:shadow-[0_0_20px_rgba(0,134,255,0.15)] transition-all duration-300 group cursor-pointer hover:-translate-y-1 relative overflow-hidden">
+        <a
+          href="https://cloud.google.com/"
+          target="_blank"
+          rel="noreferrer"
+          class="h-28 w-56 p-6 bg-white dark:bg-card-dark rounded-2xl flex items-center justify-center border border-gray-200 dark:border-white/5 hover:border-cncf-blue/50 dark:hover:border-cncf-blue hover:shadow-xl dark:hover:shadow-[0_0_20px_rgba(0,134,255,0.15)] transition-all duration-300 group cursor-pointer hover:-translate-y-1 relative overflow-hidden"
+        >
           <div class="absolute inset-0 bg-gradient-to-tr from-cncf-blue/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-          <span class="material-symbols-outlined text-6xl text-gray-300 dark:text-gray-600 group-hover:text-cncf-blue dark:group-hover:text-white transition-colors duration-300 z-10">
-            cloud_circle
-          </span>
-        </div>
-        <div class="h-28 w-56 p-4 bg-white dark:bg-card-dark rounded-2xl flex items-center justify-center border border-gray-200 dark:border-white/5 hover:border-secondary/50 dark:hover:border-secondary hover:shadow-xl dark:hover:shadow-[0_0_20px_rgba(214,34,147,0.15)] transition-all duration-300 group cursor-pointer hover:-translate-y-1 relative overflow-hidden">
+          <img src={googleLogo.src} alt="Google" class="logo-muted h-10 w-auto relative z-10 transition-all duration-300" loading="lazy" />
+        </a>
+        <a
+          href="https://www.irsoluciones.com/"
+          target="_blank"
+          rel="noreferrer"
+          class="h-28 w-56 p-6 bg-white dark:bg-card-dark rounded-2xl flex items-center justify-center border border-gray-200 dark:border-white/5 hover:border-secondary/50 dark:hover:border-secondary hover:shadow-xl dark:hover:shadow-[0_0_20px_rgba(214,34,147,0.15)] transition-all duration-300 group cursor-pointer hover:-translate-y-1 relative overflow-hidden"
+        >
           <div class="absolute inset-0 bg-gradient-to-tr from-secondary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-          <span class="material-symbols-outlined text-6xl text-gray-300 dark:text-gray-600 group-hover:text-secondary dark:group-hover:text-white transition-colors duration-300 z-10">
-            code_blocks
-          </span>
-        </div>
+          <img src={irSolucionesLogo.src} alt="IR Soluciones" class="logo-muted h-10 w-auto relative z-10 transition-all duration-300" loading="lazy" />
+        </a>
       </div>
       
       <!-- Secondary Sponsors -->
@@ -82,4 +90,19 @@ import Reveal from './Reveal.astro';
   </div>
 </div>
 
+<style>
+  .logo-muted {
+    opacity: 0.72;
+    transition: opacity 0.3s ease, filter 0.3s ease;
+  }
+
+  :global(.dark) .logo-muted {
+    filter: invert(1) brightness(1.05);
+    opacity: 0.7;
+  }
+
+  .group:hover .logo-muted {
+    opacity: 1;
+  }
+</style>
 
