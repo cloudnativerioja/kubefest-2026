@@ -32,7 +32,7 @@ import { TICKETS_URL } from '../constants';
           </svg>
         </div>
         <a href="/">
-          <h1 class="text-slate-900 dark:text-white text-xl font-bold leading-tight tracking-[-0.015em] bg-clip-text hidden md:block">
+          <h1 class="text-slate-900 dark:text-white text-base sm:text-lg md:text-xl font-bold leading-tight tracking-[-0.015em] bg-clip-text whitespace-nowrap">
             KubeFest 2026
           </h1>
         </a>
@@ -65,10 +65,83 @@ import { TICKETS_URL } from '../constants';
         <a href={TICKETS_URL} target="_blank" rel="noopener noreferrer" class="hidden md:flex cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-6 bg-cncf-blue hover:bg-cncf-dark transition-all duration-300 hover:scale-105 text-white text-sm font-bold shadow-lg shadow-cncf-blue/20">
           <span class="truncate">Tickets</span>
         </a>
-        <div class="md:hidden text-slate-900 dark:text-white ml-2">
-          <span class="material-symbols-outlined cursor-pointer text-3xl">menu</span>
-        </div>
+        <button
+          id="menu-toggle"
+          class="md:hidden text-slate-900 dark:text-white ml-2 inline-flex items-center justify-center rounded-full p-2 hover:bg-gray-100 dark:hover:bg-white/10 transition-colors"
+          aria-label="Abrir menú"
+        >
+          <span class="material-symbols-outlined text-3xl">menu</span>
+        </button>
       </div>
+    </div>
+  </div>
+</div>
+
+<div
+  id="mobile-menu"
+  class="fixed inset-0 z-[60] hidden bg-white/60 dark:bg-[#0B1120]/60 backdrop-blur-2xl"
+  aria-hidden="true"
+>
+  <div class="flex h-full flex-col p-6">
+    <div class="flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="size-10 text-cncf-blue flex items-center justify-center">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 220" role="img" aria-label="Icon" class="w-full h-full">
+            <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+              <path stroke-width="12"
+                d="M110 20
+                   L185 65
+                   L185 155
+                   L110 200
+                   L35 155
+                   L35 65
+                   Z" />
+              <path stroke-width="10"
+                d="M110 55
+                   L155 80
+                   L155 140
+                   L110 165
+                   L65 140
+                   L65 80
+                   Z" />
+              <path stroke-width="10" d="M110 55 L110 165" />
+              <path stroke-width="10" d="M65 80 L110 105 L155 80" />
+              <path stroke-width="10" d="M65 140 L110 115 L155 140" />
+            </g>
+          </svg>
+        </div>
+        <a href="/" class="text-slate-900 dark:text-white text-xl font-bold tracking-[-0.015em] whitespace-nowrap">KubeFest 2026</a>
+      </div>
+      <div class="flex items-center gap-3">
+        <button
+          id="mobile-dark-toggle"
+          aria-label="Toggle Dark Mode"
+          class="flex items-center justify-center p-2 rounded-full text-gray-500 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-white/10 transition-colors border border-transparent hover:border-gray-200 dark:hover:border-white/10"
+        >
+          <span class="material-symbols-outlined dark:hidden">dark_mode</span>
+          <span class="material-symbols-outlined hidden dark:block">light_mode</span>
+        </button>
+        <button
+          id="menu-close"
+          class="inline-flex items-center justify-center rounded-full p-2 text-slate-900 dark:text-white hover:bg-gray-100 dark:hover:bg-white/10 transition-colors"
+          aria-label="Cerrar menú"
+        >
+          <span class="material-symbols-outlined text-3xl">close</span>
+        </button>
+      </div>
+    </div>
+    <div class="mt-10 flex-1">
+      <nav class="flex flex-col gap-4 text-lg font-semibold text-slate-900 dark:text-white">
+        <a class="px-4 py-3 rounded-2xl hover:bg-white/60 dark:hover:bg-white/10 transition-colors" href="#speakers">Speakers</a>
+        <a class="px-4 py-3 rounded-2xl hover:bg-white/60 dark:hover:bg-white/10 transition-colors" href="#agenda">Agenda</a>
+        <a class="px-4 py-3 rounded-2xl hover:bg-white/60 dark:hover:bg-white/10 transition-colors" href="#sponsors">Sponsors</a>
+        <a class="px-4 py-3 rounded-2xl hover:bg-white/60 dark:hover:bg-white/10 transition-colors" href="#ubicacion">Ubicación</a>
+      </nav>
+    </div>
+    <div class="flex flex-col gap-4">
+      <a href={TICKETS_URL} target="_blank" rel="noopener noreferrer" class="inline-flex cursor-pointer items-center justify-center rounded-full h-12 px-6 bg-cncf-blue hover:bg-cncf-dark transition-all duration-300 hover:scale-[1.02] text-white text-base font-bold shadow-lg shadow-cncf-blue/20">
+        Tickets
+      </a>
     </div>
   </div>
 </div>
@@ -103,8 +176,60 @@ import { TICKETS_URL } from '../constants';
 
   // Set up toggle button
   const toggleButton = document.getElementById('dark-mode-toggle');
+  const menuToggle = document.getElementById('menu-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const menuClose = document.getElementById('menu-close');
+  const mobileDarkToggle = document.getElementById('mobile-dark-toggle');
+
+  function openMenu() {
+    if (!mobileMenu) return;
+    mobileMenu.classList.remove('hidden');
+    mobileMenu.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeMenu() {
+    if (!mobileMenu) return;
+    mobileMenu.classList.add('hidden');
+    mobileMenu.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
   if (toggleButton) {
     toggleButton.addEventListener('click', toggleDarkMode);
+  }
+
+  if (mobileDarkToggle) {
+    mobileDarkToggle.addEventListener('click', toggleDarkMode);
+  }
+
+  if (menuToggle) {
+    menuToggle.addEventListener('click', openMenu);
+  }
+
+  if (menuClose) {
+    menuClose.addEventListener('click', closeMenu);
+  }
+
+  if (mobileMenu) {
+    mobileMenu.addEventListener('click', (e) => {
+      if (e.target === mobileMenu) {
+        closeMenu();
+      }
+    });
+
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeMenu();
+      }
+    });
+
+    const mobileLinks = mobileMenu.querySelectorAll('a[href^="#"], a[href^="http"]');
+    mobileLinks.forEach((link) => {
+      link.addEventListener('click', () => {
+        closeMenu();
+      });
+    });
   }
 
   // Listen for system preference changes (only if user hasn't set a preference)
