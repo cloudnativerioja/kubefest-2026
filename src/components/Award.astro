@@ -29,13 +29,19 @@ import Reveal from './Reveal.astro';
           </p>
         </div>
         <div class="flex flex-wrap justify-center md:justify-start gap-4">
-          <button class="flex items-center justify-center rounded-lg h-12 px-6 bg-secondary hover:bg-[#b01b78] transition-all hover:scale-105 hover:-translate-y-1 text-white text-base font-bold shadow-[0_4px_20px_rgba(214,34,147,0.3)]">
+          <button
+            class="flex items-center justify-center rounded-lg h-12 px-6 bg-secondary hover:bg-[#b01b78] transition-all hover:scale-105 hover:-translate-y-1 text-white text-base font-bold shadow-[0_4px_20px_rgba(214,34,147,0.3)]"
+            data-open-modal="local-expert"
+          >
             <span class="mr-2">Ver criterios</span>
             <span class="material-symbols-outlined text-sm">list_alt</span>
           </button>
-          <button class="flex items-center justify-center rounded-lg h-12 px-6 bg-white dark:bg-card-dark border border-gray-200 dark:border-white/10 text-slate-700 dark:text-white text-base font-bold transition-all hover:bg-gray-50 dark:hover:bg-white/5">
+          <a
+            href="mailto:info@kubefest.com?subject=Nominar%20Local%20Expert%202026&body=Hola%20equipo%20de%20KubeFest%2C%0A%0AQuiero%20nominar%20a%3A%0A-%20Nombre%3A%0A-%20Rol/Empresa%3A%0A-%20Enlace%20de%20perfil%3A%0A%0AImpacto%20y%20contribuci%C3%B3n%20(Resumir%20logros%20en%20comunidad%20Cloud%20Native%20/%20IA)%3A%0A- %0A%0AColaboraci%C3%B3n%20local%20en%20La%20Rioja%3A%0A- %0A%0AGracias%2C"
+            class="flex items-center justify-center rounded-lg h-12 px-6 bg-white dark:bg-card-dark border border-gray-200 dark:border-white/10 text-slate-700 dark:text-white text-base font-bold transition-all hover:bg-gray-50 dark:hover:bg-white/5"
+          >
             Nominar candidato
-          </button>
+          </a>
         </div>
       </div>
       <div class="w-full md:w-1/2 relative">
@@ -64,5 +70,118 @@ import Reveal from './Reveal.astro';
     </div>
   </Reveal>
 </div>
+
+<div
+  id="local-expert-modal"
+  class="fixed inset-0 z-50 hidden items-center justify-center p-4 flex"
+  aria-hidden="true"
+>
+  <div
+    class="absolute inset-0 bg-black/60 backdrop-blur-sm transition-opacity"
+    data-close-modal
+  ></div>
+  <div class="relative max-w-2xl w-full bg-white dark:bg-[#0c1424] border border-gray-200 dark:border-white/10 rounded-2xl shadow-2xl overflow-hidden animate-fade-in-up">
+    <div class="flex items-center justify-between px-6 py-4 border-b border-gray-100 dark:border-white/10">
+      <div>
+        <p class="text-xs font-semibold uppercase text-secondary tracking-[0.2em]">Criterios</p>
+        <h3 class="text-xl md:text-2xl font-bold text-slate-900 dark:text-white">Premio Local Expert 2026</h3>
+      </div>
+      <button
+        class="size-10 inline-flex items-center justify-center rounded-full text-gray-500 hover:text-slate-900 dark:text-gray-300 hover:bg-gray-100/80 dark:hover:bg-white/5 transition-colors"
+        aria-label="Cerrar modal"
+        data-close-modal
+      >
+        <span class="material-symbols-outlined">close</span>
+      </button>
+    </div>
+
+    <div class="px-6 py-5 space-y-4 text-gray-700 dark:text-gray-200">
+      <p class="text-sm leading-relaxed">
+        Reconocemos a quienes elevan la comunidad Cloud Native en La Rioja. Buscamos perfiles que combinen
+        impacto técnico y generosidad al compartir conocimiento.
+      </p>
+      <ul class="space-y-3">
+        <li class="flex gap-3">
+          <span class="material-symbols-outlined text-secondary">emoji_objects</span>
+          <div>
+            <p class="font-semibold">Impacto comunitario</p>
+            <p class="text-sm text-gray-600 dark:text-gray-400">Liderazgo en meetups locales, mentoría o creación de iniciativas abiertas.</p>
+          </div>
+        </li>
+        <li class="flex gap-3">
+          <span class="material-symbols-outlined text-secondary">hub</span>
+          <div>
+            <p class="font-semibold">Contribución técnica</p>
+            <p class="text-sm text-gray-600 dark:text-gray-400">Participación en proyectos CNCF u open source, charlas o demos hands-on.</p>
+          </div>
+        </li>
+        <li class="flex gap-3">
+          <span class="material-symbols-outlined text-secondary">shield_person</span>
+          <div>
+            <p class="font-semibold">Buenas prácticas</p>
+            <p class="text-sm text-gray-600 dark:text-gray-400">Promoción de seguridad, fiabilidad y sostenibilidad en Kubernetes e IA.</p>
+          </div>
+        </li>
+        <li class="flex gap-3">
+          <span class="material-symbols-outlined text-secondary">diversity_3</span>
+          <div>
+            <p class="font-semibold">Inclusión y mentoring</p>
+            <p class="text-sm text-gray-600 dark:text-gray-400">Acciones que amplían la participación de nuevos perfiles y voces diversas.</p>
+          </div>
+        </li>
+        <li class="flex gap-3">
+          <span class="material-symbols-outlined text-secondary">handshake</span>
+          <div>
+            <p class="font-semibold">Colaboración local</p>
+            <p class="text-sm text-gray-600 dark:text-gray-400">Trabajo con empresas, instituciones o comunidades de La Rioja para proyectos cloud/IA.</p>
+          </div>
+        </li>
+        <li class="flex gap-3">
+          <span class="material-symbols-outlined text-secondary">schedule</span>
+          <div>
+            <p class="font-semibold">Ejecutado en 2025-2026</p>
+            <p class="text-sm text-gray-600 dark:text-gray-400">Acciones realizadas o en marcha durante los últimos 12 meses.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<script>
+  const modal = document.getElementById('local-expert-modal');
+  const openButtons = document.querySelectorAll('[data-open-modal="local-expert"]');
+  const closeTriggers = () => modal?.querySelectorAll('[data-close-modal]') || [];
+
+  const setModalOpen = (open: boolean) => {
+    if (!modal) return;
+    modal.classList.toggle('hidden', !open);
+    modal.setAttribute('aria-hidden', open ? 'false' : 'true');
+    document.body.style.overflow = open ? 'hidden' : '';
+  };
+
+  openButtons.forEach((btn) =>
+    btn.addEventListener('click', () => {
+      setModalOpen(true);
+      modal?.focus();
+    })
+  );
+
+  const attachCloseListeners = () => {
+    closeTriggers().forEach((trigger) =>
+      trigger.addEventListener('click', () => setModalOpen(false))
+    );
+  };
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') setModalOpen(false);
+  });
+
+  modal?.addEventListener('click', (event) => {
+    if (event.target === modal) setModalOpen(false);
+  });
+
+  attachCloseListeners();
+</script>
 
 
