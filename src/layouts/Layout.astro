@@ -1,4 +1,6 @@
 ---
+import '../styles/global.css';
+
 interface Props {
   title?: string;
 }
@@ -38,48 +40,6 @@ const { title = "KubeFest 2026 - Infraestructura, Kubernetes e IA en Logroño" }
   </head>
   <body class="bg-background-light dark:bg-background-dark">
     <slot />
-    
-    <style is:global>
-      html { 
-        scroll-behavior: smooth; 
-      }
-      
-      /* Base reveal styles handled by client-side script */
-      .reveal {
-        opacity: 0;
-        transform: translateY(30px);
-        transition: all 0.8s ease-out;
-      }
-      .reveal.active {
-        opacity: 1;
-        transform: translateY(0);
-      }
-      
-      .reveal-children > * {
-        opacity: 0;
-        transform: translateY(20px);
-        transition: all 0.6s ease-out;
-      }
-      .reveal-children.active > * {
-        opacity: 1;
-        transform: translateY(0);
-      }
-      /* Staggered delays */
-      .reveal-children.active > *:nth-child(1) { transition-delay: 0.1s; }
-      .reveal-children.active > *:nth-child(2) { transition-delay: 0.2s; }
-      .reveal-children.active > *:nth-child(3) { transition-delay: 0.3s; }
-      .reveal-children.active > *:nth-child(4) { transition-delay: 0.4s; }
-      .reveal-children.active > *:nth-child(5) { transition-delay: 0.5s; }
-      .reveal-children.active > *:nth-child(6) { transition-delay: 0.6s; }
-      .reveal-children.active > *:nth-child(7) { transition-delay: 0.7s; }
-
-      .map-filter {
-        filter: grayscale(100%) invert(92%) contrast(83%);
-      }
-      .dark .map-filter {
-        filter: grayscale(100%) invert(10%) contrast(83%);
-      }
-    </style>
   </body>
 </html>
 
