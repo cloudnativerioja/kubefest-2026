@@ -61,18 +61,6 @@ This project uses [Playwright](https://playwright.dev) for end-to-end testing to
    pnpm exec playwright test --project=chromium
    ```
 
-### Test Coverage
-
-The test suite includes:
-- Homepage loading and basic structure
-- Navigation bar functionality
-- Hero section visibility
-- Navigation links and anchors
-- Footer display
-- Mobile responsive design
-- Mobile burger menu functionality
-- Console error detection
-
 ### CI/CD
 
 Tests run automatically on every pull request via GitHub Actions. The workflow:
