@@ -1,5 +1,13 @@
 ---
 import { TICKETS_URL } from '../constants';
+import kubefestLogo from '../images/misc/kubefest-logo.svg';
+
+const menuLinks = [
+  { href: '#speakers', label: 'Speakers' },
+  { href: '#agenda', label: 'Agenda' },
+  { href: '#sponsors', label: 'Sponsors' },
+  { href: '#ubicacion', label: 'Ubicación' },
+];
 ---
 
 <div id="navbar" class="sticky top-0 z-50 w-full bg-white/30 dark:bg-[#0B1120]/30 backdrop-blur-xl border-b border-white/20 dark:border-white/10 transition-all duration-300">
@@ -7,29 +15,7 @@ import { TICKETS_URL } from '../constants';
     <div class="flex w-full max-w-[1200px] items-center justify-between">
       <div class="flex items-center gap-2 md:w-1/4">
         <div class="size-10 text-cncf-blue flex items-center justify-center">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 220" role="img" aria-label="Icon" class="w-full h-full">
-            <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-              <path stroke-width="12"
-                d="M110 20
-                   L185 65
-                   L185 155
-                   L110 200
-                   L35 155
-                   L35 65
-                   Z" />
-              <path stroke-width="10"
-                d="M110 55
-                   L155 80
-                   L155 140
-                   L110 165
-                   L65 140
-                   L65 80
-                   Z" />
-              <path stroke-width="10" d="M110 55 L110 165" />
-              <path stroke-width="10" d="M65 80 L110 105 L155 80" />
-              <path stroke-width="10" d="M65 140 L110 115 L155 140" />
-            </g>
-          </svg>
+          <img src={kubefestLogo.src} alt="KubeFest Logo" class="w-full h-full kubefest-logo" role="img" aria-label="Icon" />
         </div>
         <a href="/">
           <h1 class="text-slate-900 dark:text-white text-base sm:text-lg md:text-xl font-bold leading-tight tracking-[-0.015em] bg-clip-text whitespace-nowrap">
@@ -39,18 +25,11 @@ import { TICKETS_URL } from '../constants';
       </div>
       <div class="hidden md:flex flex-1 justify-center items-center gap-8">
         <nav class="flex items-center gap-6 px-4 py-2 bg-gray-100/50 dark:bg-white/5 rounded-full border border-gray-200 dark:border-white/10 backdrop-blur-sm">
-          <a href="#speakers" class="text-gray-600 dark:text-gray-300 hover:text-cncf-blue dark:hover:text-cncf-blue text-sm font-medium transition-colors hover:bg-white dark:hover:bg-white/10 px-3 py-1 rounded-full">
-            Speakers
-          </a>
-          <a href="#agenda" class="text-gray-600 dark:text-gray-300 hover:text-cncf-blue dark:hover:text-cncf-blue text-sm font-medium transition-colors hover:bg-white dark:hover:bg-white/10 px-3 py-1 rounded-full">
-            Agenda
-          </a>
-          <a href="#sponsors" class="text-gray-600 dark:text-gray-300 hover:text-cncf-blue dark:hover:text-cncf-blue text-sm font-medium transition-colors hover:bg-white dark:hover:bg-white/10 px-3 py-1 rounded-full">
-            Sponsors
-          </a>
-          <a href="#ubicacion" class="text-gray-600 dark:text-gray-300 hover:text-cncf-blue dark:hover:text-cncf-blue text-sm font-medium transition-colors hover:bg-white dark:hover:bg-white/10 px-3 py-1 rounded-full">
-            Ubicación
-          </a>
+          {menuLinks.map((link) => (
+            <a href={link.href} class="text-gray-600 dark:text-gray-300 hover:text-cncf-blue dark:hover:text-cncf-blue text-sm font-medium transition-colors hover:bg-white dark:hover:bg-white/10 px-3 py-1 rounded-full">
+              {link.label}
+            </a>
+          ))}
         </nav>
       </div>
       <div class="flex md:w-1/4 justify-end items-center gap-3">
@@ -86,29 +65,7 @@ import { TICKETS_URL } from '../constants';
     <div class="flex items-center justify-between">
       <div class="flex items-center gap-3">
         <div class="size-10 text-cncf-blue flex items-center justify-center">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 220" role="img" aria-label="Icon" class="w-full h-full">
-            <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-              <path stroke-width="12"
-                d="M110 20
-                   L185 65
-                   L185 155
-                   L110 200
-                   L35 155
-                   L35 65
-                   Z" />
-              <path stroke-width="10"
-                d="M110 55
-                   L155 80
-                   L155 140
-                   L110 165
-                   L65 140
-                   L65 80
-                   Z" />
-              <path stroke-width="10" d="M110 55 L110 165" />
-              <path stroke-width="10" d="M65 80 L110 105 L155 80" />
-              <path stroke-width="10" d="M65 140 L110 115 L155 140" />
-            </g>
-          </svg>
+          <img src={kubefestLogo.src} alt="KubeFest Logo" class="w-full h-full kubefest-logo" role="img" aria-label="Icon" />
         </div>
         <a href="/" class="text-slate-900 dark:text-white text-xl font-bold tracking-[-0.015em] whitespace-nowrap">KubeFest 2026</a>
       </div>
@@ -132,10 +89,11 @@ import { TICKETS_URL } from '../constants';
     </div>
     <div class="mt-10 flex-1">
       <nav class="flex flex-col gap-4 text-lg font-semibold text-slate-900 dark:text-white">
-        <a class="px-4 py-3 rounded-2xl hover:bg-white/60 dark:hover:bg-white/10 transition-colors" href="#speakers">Speakers</a>
-        <a class="px-4 py-3 rounded-2xl hover:bg-white/60 dark:hover:bg-white/10 transition-colors" href="#agenda">Agenda</a>
-        <a class="px-4 py-3 rounded-2xl hover:bg-white/60 dark:hover:bg-white/10 transition-colors" href="#sponsors">Sponsors</a>
-        <a class="px-4 py-3 rounded-2xl hover:bg-white/60 dark:hover:bg-white/10 transition-colors" href="#ubicacion">Ubicación</a>
+        {menuLinks.map((link) => (
+          <a class="px-4 py-3 rounded-2xl hover:bg-white/60 dark:hover:bg-white/10 transition-colors" href={link.href}>
+            {link.label}
+          </a>
+        ))}
       </nav>
     </div>
     <div class="flex flex-col gap-4">
@@ -299,5 +257,10 @@ import { TICKETS_URL } from '../constants';
     background-color: rgba(11, 17, 32, 0.5) !important;
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
     border-bottom-color: rgba(255, 255, 255, 0.15);
+  }
+
+  .kubefest-logo {
+    transition: filter 0.3s ease;
+    filter: brightness(0) saturate(100%) invert(27%) sepia(96%) saturate(7498%) hue-rotate(210deg) brightness(102%) contrast(101%);
   }
 </style>
