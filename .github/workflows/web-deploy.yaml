@@ -1,6 +1,10 @@
 name: Deploy to GitHub Pages
 
 on:
+  workflow_run:
+    workflows: ["Test with Playwright"]
+    types:
+      - completed
   push:
     branches: [main]
   workflow_dispatch:
@@ -11,7 +15,20 @@ permissions:
   id-token: write
 
 jobs:
+  # Only deploy if tests passed (when triggered by workflow_run)
+  # For direct pushes, we assume tests will run in parallel
+  check-test-status:
+    runs-on: ubuntu-latest
+    if: |
+      (github.event_name == 'workflow_run' && github.event.workflow_run.conclusion == 'success') ||
+      github.event_name == 'push' ||
+      github.event_name == 'workflow_dispatch'
+    steps:
+      - name: Check test status
+        run: echo "Tests passed or running in parallel, proceeding with deployment"
+
   build:
+    needs: check-test-status
     runs-on: ubuntu-latest
     steps:
       - name: Checkout your repository using git
