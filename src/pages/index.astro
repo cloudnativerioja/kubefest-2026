@@ -29,4 +29,34 @@ import Footer from '../components/Footer.astro';
   </div>
 </Layout>
 
+<script>
+  // Handle all hash links on the page with smooth scrolling
+  document.addEventListener('DOMContentLoaded', () => {
+    const navbar = document.getElementById('navbar');
+    const navbarHeight = navbar?.offsetHeight || 0;
+
+    // Handle clicks on any hash link
+    document.addEventListener('click', (e) => {
+      const target = e.target as HTMLElement;
+      if (!target) return;
+      
+      const link = target.closest('a[href^="#"]') as HTMLAnchorElement | null;
+      if (link) {
+        e.preventDefault();
+        const targetId = link.getAttribute('href')?.substring(1);
+        if (targetId) {
+          const targetElement = document.getElementById(targetId);
+          if (targetElement) {
+            const currentNavbarHeight = navbar?.offsetHeight || navbarHeight;
+            const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - currentNavbarHeight;
+            window.scrollTo({
+              top: targetPosition,
+              behavior: 'smooth'
+            });
+          }
+        }
+      }
+    });
+  });
+</script>
 

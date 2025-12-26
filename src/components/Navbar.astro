@@ -271,33 +271,6 @@ import { TICKETS_URL } from '../constants';
     window.addEventListener('scroll', handleScroll);
     handleScroll(); // Check initial state
   }
-
-  // Handle hash links without updating URL
-  if (navbar) {
-    const nav = navbar.querySelector('nav');
-    if (nav) {
-      nav.addEventListener('click', (e) => {
-        const target = e.target as HTMLElement;
-        if (!target) return;
-        const link = target.closest('a[href^="#"]') as HTMLAnchorElement | null;
-        if (link) {
-          e.preventDefault();
-          const targetId = link.getAttribute('href')?.substring(1);
-          if (targetId) {
-            const targetElement = document.getElementById(targetId);
-            if (targetElement && navbar) {
-              const navbarHeight = navbar.offsetHeight;
-              const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
-              window.scrollTo({
-                top: targetPosition,
-                behavior: 'smooth'
-              });
-            }
-          }
-        }
-      });
-    }
-  }
 </script>
 
 <style>
