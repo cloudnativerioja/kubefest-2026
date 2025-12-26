@@ -2,18 +2,18 @@
 
 A modern event website for KubeFest 2026, built with Astro and Tailwind CSS.
 
-## 🚀 Tech Stack
+## Tech Stack
 
 - **[Astro](https://astro.build)** - Modern web framework for content-driven websites
 - **[Tailwind CSS](https://tailwindcss.com)** - Utility-first CSS framework
 - **[TypeScript](https://www.typescriptlang.org)** - Type-safe JavaScript
 
-## 📋 Prerequisites
+## Prerequisites
 
 - **Node.js** (v18 or higher recommended)
 - **pnpm** (package manager)
 
-## 🛠️ Setup
+## Setup
 
 1. **Install dependencies:**
    ```bash
@@ -37,6 +37,6 @@ A modern event website for KubeFest 2026, built with Astro and Tailwind CSS.
    pnpm preview
    ```
 
-## 🌐 Development Server
+## Development Server
 
 The development server runs on port `4000` by default (configured in `astro.config.mjs`).
