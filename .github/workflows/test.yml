@@ -65,6 +65,9 @@ jobs:
             echo "📥 Installing Playwright browsers (this may take a few minutes)..."
             pnpm exec playwright install --with-deps chromium firefox webkit
           fi
+      
+      - name: Install system dependencies for WebKit
+        run: pnpm exec playwright install-deps webkit
 
       - name: Run Playwright tests
         id: test
