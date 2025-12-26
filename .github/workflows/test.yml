@@ -2,22 +2,21 @@ name: Test with Playwright
 
 on:
   pull_request:
-    branches: [main]
-  push:
-    branches: [main]
   workflow_dispatch:
 
 permissions:
   contents: read
   pull-requests: write
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   test:
     name: Playwright Tests
     runs-on: ubuntu-latest
     timeout-minutes: 15
-    # This ensures the check appears in PR status checks
-    if: github.event_name == 'pull_request' || github.event_name == 'push' || github.event_name == 'workflow_dispatch'
     
     steps:
       - name: Checkout code
@@ -40,8 +39,35 @@ jobs:
       - name: Build application
         run: pnpm build
 
+      - name: Get Playwright version
+        id: playwright-version
+        run: |
+          VERSION=$(pnpm exec playwright --version 2>/dev/null | head -n1 | awk '{print $2}' || echo "unknown")
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+          echo "Playwright version: $VERSION"
+
+      - name: Cache Playwright browsers
+        uses: actions/cache@v4
+        id: playwright-cache
+        with:
+          path: |
+            /home/runner/.cache/ms-playwright
+          key: ${{ runner.os }}-playwright-${{ steps.playwright-version.outputs.version }}-browsers
+          restore-keys: |
+            ${{ runner.os }}-playwright-${{ steps.playwright-version.outputs.version }}-
+            ${{ runner.os }}-playwright-
+
       - name: Install Playwright browsers
-        run: pnpm exec playwright install --with-deps
+        run: |
+          if [ "${{ steps.playwright-cache.outputs.cache-hit }}" == "true" ]; then
+            echo "✅ Using cached Playwright browsers"
+            # Still need to install system dependencies even with cached browsers
+            echo "📦 Installing system dependencies for browsers..."
+            pnpm exec playwright install-deps chromium firefox webkit
+          else
+            echo "📥 Installing Playwright browsers (this may take a few minutes)..."
+            pnpm exec playwright install --with-deps chromium firefox webkit
+          fi
 
       - name: Run Playwright tests
         id: test
@@ -69,4 +95,33 @@ jobs:
               repo: context.repo.repo,
               body: '❌ **Tests failed!** Please fix the failing tests before merging.\n\nCheck the [workflow run](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}) for details.'
             })
+
+      - name: Delete previous failure comments on success
+        if: success() && github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const { data: comments } = await github.rest.issues.listComments({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+            });
+            
+            const failureCommentPattern = /❌ \*\*Tests failed!\*\*/;
+            const botComments = comments.filter(comment => 
+              failureCommentPattern.test(comment.body) &&
+              comment.user.type === 'Bot'
+            );
+            
+            for (const comment of botComments) {
+              await github.rest.issues.deleteComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                comment_id: comment.id,
+              });
+            }
+            
+            if (botComments.length > 0) {
+              console.log(`Deleted ${botComments.length} previous failure comment(s)`);
+            }
 

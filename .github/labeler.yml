@@ -1,8 +1,55 @@
+# CI/CD
 ci/cd:
   - .github/workflows/*
 
-infrastructure:
-  - "**/*.tf"
+# Frontend/UI Components
+frontend:
+  - src/components/**/*
+  - src/pages/**/*
+  - src/layouts/**/*
 
+# Styling
+styling:
+  - src/styles/**/*
+  - tailwind.config.*
+  - "**/*.css"
+
+# Testing
+testing:
+  - tests/**/*
+  - playwright.config.*
+  - "**/*.spec.ts"
+  - "**/*.spec.js"
+
+# Configuration
+configuration:
+  - astro.config.*
+  - tsconfig.json
+  - package.json
+  - pnpm-lock.yaml
+  - pnpm-workspace.yaml
+
+# Documentation
 documentation:
   - "**/*.md"
+  - README.md
+
+# Assets/Images
+assets:
+  - src/images/**/*
+  - public/**/*
+  - "**/*.jpg"
+  - "**/*.jpeg"
+  - "**/*.png"
+  - "**/*.svg"
+  - "**/*.webp"
+
+# TypeScript/Type Definitions
+types:
+  - src/types.ts
+  - src/env.d.ts
+  - "**/*.d.ts"
+
+# Constants/Data
+data:
+  - src/constants.ts
