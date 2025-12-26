@@ -61,13 +61,13 @@ jobs:
         run: |
           if [ "${{ steps.playwright-cache.outputs.cache-hit }}" == "true" ]; then
             echo "✅ Using cached Playwright browsers"
+            # Still need to install system dependencies even with cached browsers
+            echo "📦 Installing system dependencies for browsers..."
+            pnpm exec playwright install-deps chromium firefox webkit
           else
             echo "📥 Installing Playwright browsers (this may take a few minutes)..."
             pnpm exec playwright install --with-deps chromium firefox webkit
           fi
-      
-      - name: Install system dependencies for WebKit
-        run: pnpm exec playwright install-deps webkit
 
       - name: Run Playwright tests
         id: test
