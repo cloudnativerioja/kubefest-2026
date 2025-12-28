@@ -10,7 +10,7 @@ const menuLinks = [
 ];
 ---
 
-<div id="navbar" class="sticky top-0 z-50 w-full bg-white/30 dark:bg-[#0B1120]/30 backdrop-blur-xl border-b border-white/20 dark:border-white/10 transition-all duration-300">
+<div id="navbar" class="sticky top-0 z-50 w-full bg-white/50 dark:bg-[#0B1120]/50 backdrop-blur-xl border-b border-white/20 dark:border-white/10 transition-all duration-300">
   <div class="flex justify-center px-4 py-3 md:px-10">
     <div class="flex w-full max-w-[1200px] items-center justify-between">
       <div class="flex items-center gap-2 md:w-1/4">
@@ -32,7 +32,7 @@ const menuLinks = [
           ))}
         </nav>
       </div>
-      <div class="flex md:w-1/4 justify-end items-center gap-3">
+      <div class="flex md:w-1/4 justify-end items-center gap-2">
         <button
           id="dark-mode-toggle"
           aria-label="Toggle Dark Mode"
@@ -46,7 +46,7 @@ const menuLinks = [
         </a>
         <button
           id="menu-toggle"
-          class="md:hidden text-slate-900 dark:text-white ml-2 inline-flex items-center justify-center rounded-full p-2 hover:bg-gray-100 dark:hover:bg-white/10 transition-colors"
+          class="md:hidden text-slate-900 dark:text-white inline-flex items-center justify-center rounded-full p-2 hover:bg-gray-100 dark:hover:bg-white/10 transition-colors"
           aria-label="Abrir menú"
         >
           <span class="material-symbols-outlined text-3xl">menu</span>
@@ -218,17 +218,17 @@ const menuLinks = [
       navbar.classList.add('scrolled');
       // Slightly more opaque when scrolled, but still glassmorphic
       if (isDark) {
-        navbar.style.backgroundColor = 'rgba(11, 17, 32, 0.5)';
+        navbar.style.backgroundColor = 'rgba(11, 17, 32, 0.7)';
       } else {
-        navbar.style.backgroundColor = 'rgba(255, 255, 255, 0.5)';
+        navbar.style.backgroundColor = 'rgba(255, 255, 255, 0.7)';
       }
     } else {
       navbar.classList.remove('scrolled');
       // Reset to base glassmorphic background
       if (isDark) {
-        navbar.style.backgroundColor = 'rgba(11, 17, 32, 0.3)';
+        navbar.style.backgroundColor = 'rgba(11, 17, 32, 0.5)';
       } else {
-        navbar.style.backgroundColor = 'rgba(255, 255, 255, 0.3)';
+        navbar.style.backgroundColor = 'rgba(255, 255, 255, 0.5)';
       }
     }
   }
@@ -246,23 +246,23 @@ const menuLinks = [
   }
   
   html:not(.dark) #navbar {
-    background-color: rgba(255, 255, 255, 0.3) !important;
+    background-color: rgba(255, 255, 255, 0.5) !important;
     border-bottom-color: rgba(0, 0, 0, 0.1);
   }
   
   html:not(.dark) #navbar.scrolled {
-    background-color: rgba(255, 255, 255, 0.5) !important;
+    background-color: rgba(255, 255, 255, 0.7) !important;
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
     border-bottom-color: rgba(0, 0, 0, 0.15);
   }
   
   html.dark #navbar {
-    background-color: rgba(11, 17, 32, 0.3) !important;
+    background-color: rgba(11, 17, 32, 0.5) !important;
     border-bottom-color: rgba(255, 255, 255, 0.1);
   }
   
   html.dark #navbar.scrolled {
-    background-color: rgba(11, 17, 32, 0.5) !important;
+    background-color: rgba(11, 17, 32, 0.7) !important;
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
     border-bottom-color: rgba(255, 255, 255, 0.15);
   }
