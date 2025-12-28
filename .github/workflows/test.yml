@@ -39,35 +39,23 @@ jobs:
       - name: Build application
         run: pnpm build
 
-      - name: Get Playwright version
-        id: playwright-version
-        run: |
-          VERSION=$(pnpm exec playwright --version 2>/dev/null | head -n1 | awk '{print $2}' || echo "unknown")
-          echo "version=$VERSION" >> $GITHUB_OUTPUT
-          echo "Playwright version: $VERSION"
-
-      - name: Cache Playwright browsers
+      - name: Restore Playwright binaries cache
         uses: actions/cache@v4
         id: playwright-cache
         with:
-          path: |
-            /home/runner/.cache/ms-playwright
-          key: ${{ runner.os }}-playwright-${{ steps.playwright-version.outputs.version }}-browsers
+          key: ${{ runner.os }}-playwright-${{ hashFiles('**/playwright.config.ts') }}
+          path: ~/.cache/ms-playwright
           restore-keys: |
-            ${{ runner.os }}-playwright-${{ steps.playwright-version.outputs.version }}-
+            ${{ runner.os }}-playwright-${{ hashFiles('**/playwright.config.ts') }}
             ${{ runner.os }}-playwright-
 
-      - name: Install Playwright browsers
-        run: |
-          if [ "${{ steps.playwright-cache.outputs.cache-hit }}" == "true" ]; then
-            echo "✅ Using cached Playwright browsers"
-            # Still need to install system dependencies even with cached browsers
-            echo "📦 Installing system dependencies for browsers..."
-            pnpm exec playwright install-deps chromium firefox webkit
-          else
-            echo "📥 Installing Playwright browsers (this may take a few minutes)..."
-            pnpm exec playwright install --with-deps chromium firefox webkit
-          fi
+      - name: Install Playwright Browsers
+        run: pnpm exec playwright install --with-deps
+        if: steps.playwright-cache.outputs.cache-hit != 'true'
+
+      - name: Install Playwright system dependencies
+        run: pnpm exec playwright install-deps
+        if: steps.playwright-cache.outputs.cache-hit == 'true'
 
       - name: Run Playwright tests
         id: test
