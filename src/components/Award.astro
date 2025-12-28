@@ -3,18 +3,18 @@ import Reveal from './Reveal.astro';
 ---
 
 <div
-  class="flex flex-1 justify-center py-20 px-4 md:px-0 bg-gradient-to-br from-gray-50 to-white dark:from-[#0f172a] dark:to-[#0B1120] transition-colors duration-300 relative overflow-hidden"
+  class="flex flex-1 justify-center py-12 md:py-20 px-4 md:px-0 bg-gradient-to-br from-gray-50 to-white dark:from-[#0f172a] dark:to-[#0B1120] transition-colors duration-300 relative overflow-hidden"
   id="premio-local-expert"
 >
   <div class="absolute top-0 right-0 w-[40rem] h-[40rem] bg-secondary/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
   <Reveal className="flex flex-col max-w-[960px] flex-1 w-full relative z-10">
-    <div class="flex flex-col md:flex-row items-center gap-12 px-4">
+    <div class="flex flex-col md:flex-row items-center gap-8 md:gap-12 px-4">
       <div class="w-full md:w-1/2 text-center md:text-left">
         <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary/10 border border-secondary/20 text-secondary text-xs font-bold uppercase tracking-widest mb-4">
           <span class="material-symbols-outlined text-sm">workspace_premium</span>
           Nuevo Reconocimiento
         </div>
-        <h2 class="text-slate-900 dark:text-white text-4xl md:text-5xl font-black leading-tight tracking-[-0.02em] mb-4">
+        <h2 class="text-slate-900 dark:text-white text-3xl md:text-4xl lg:text-5xl font-black leading-tight tracking-[-0.02em] mb-4">
           Premio{" "}
           <span class="text-transparent bg-clip-text bg-gradient-to-r from-secondary to-accent-pink">
             Local Expert
@@ -22,15 +22,15 @@ import Reveal from './Reveal.astro';
           2026
         </h2>
         <div class="max-w-prose space-y-4">
-          <p class="text-gray-600 dark:text-gray-300 text-lg leading-relaxed">
+          <p class="text-gray-600 dark:text-gray-300 text-base md:text-lg leading-relaxed">
             Este galardón anual destaca a un líder excepcional de la comunidad local en Logroño.
             Celebramos a quienes impulsan la Infraestructura y la IA en La Rioja, fomentando el aprendizaje compartido.
           </p>
-          <p class="text-gray-600 dark:text-gray-300 text-base leading-relaxed">
+          <p class="text-gray-600 dark:text-gray-300 text-sm md:text-base leading-relaxed">
             El premio 2026 se otorgará durante KubeFest. El equipo de KubeFest seleccionará directamente a la persona reconocida según los criterios públicos, y el ganador será anunciado días después del evento.
           </p>
         </div>
-        <div class="flex flex-wrap justify-center md:justify-start gap-4 mt-4">
+        <div class="flex flex-wrap justify-center md:justify-start gap-4 mt-6 md:mt-4">
           <button
             class="flex items-center justify-center rounded-lg h-12 px-6 bg-secondary hover:bg-[#b01b78] transition-all hover:scale-105 hover:-translate-y-1 text-white text-base font-bold shadow-[0_4px_20px_rgba(214,34,147,0.3)]"
             data-open-modal="local-expert"
@@ -40,37 +40,37 @@ import Reveal from './Reveal.astro';
           </button>
         </div>
       </div>
-      <div class="w-full md:w-1/2 relative">
+      <div class="w-full md:w-1/2 relative mt-6 md:mt-0">
         <div class="award-card relative bg-white dark:bg-card-dark rounded-2xl p-2 border border-gray-200 dark:border-white/10 shadow-2xl overflow-hidden group">
           <div class="absolute inset-0 bg-gradient-to-br from-secondary/5 via-transparent to-cncf-blue/5 opacity-50"></div>
-          <div class="relative rounded-xl overflow-hidden aspect-[4/3] bg-gray-100 dark:bg-[#0B1120] flex flex-col items-center justify-center text-center p-8">
-            <div class="award-icon-container size-24 mb-6">
+          <div class="relative rounded-xl overflow-hidden min-h-[280px] md:aspect-[4/3] bg-gray-100 dark:bg-[#0B1120] flex flex-col items-center justify-center text-center p-5 md:p-8">
+            <div class="award-icon-container size-16 md:size-24 mb-3 md:mb-6">
               <div class="award-icon-inner">
-                <div class="award-icon-front size-24 rounded-full bg-gradient-to-br from-secondary to-accent-pink flex items-center justify-center shadow-lg">
-                  <span class="material-symbols-outlined text-5xl text-white">emoji_events</span>
+                <div class="award-icon-front size-16 md:size-24 rounded-full bg-gradient-to-br from-secondary to-accent-pink flex items-center justify-center shadow-lg">
+                  <span class="material-symbols-outlined text-3xl md:text-5xl text-white">emoji_events</span>
                 </div>
-                <div class="award-icon-back size-24 rounded-full bg-gradient-to-br from-cncf-blue to-secondary flex items-center justify-center shadow-lg">
-                  <span class="material-symbols-outlined text-5xl text-white">help</span>
+                <div class="award-icon-back size-16 md:size-24 rounded-full bg-gradient-to-br from-cncf-blue to-secondary flex items-center justify-center shadow-lg">
+                  <span class="material-symbols-outlined text-3xl md:text-5xl text-white">help</span>
                 </div>
               </div>
             </div>
-            <h3 class="text-slate-900 dark:text-white text-2xl font-bold mb-2">Ganador 2026</h3>
-            <p class="text-gray-500 dark:text-gray-400 text-sm mb-6">
+            <h3 class="text-slate-900 dark:text-white text-lg md:text-2xl font-bold mb-1.5 md:mb-2">Ganador 2026</h3>
+            <p class="text-gray-500 dark:text-gray-400 text-xs md:text-sm mb-3 md:mb-6 px-2 leading-relaxed">
               El premio se otorgará durante KubeFest y el ganador será anunciado días después del evento.
             </p>
-            <div class="w-full h-2 bg-gray-200 dark:bg-white/10 rounded-full overflow-hidden">
+            <div class="w-full max-w-[200px] md:max-w-none h-1.5 md:h-2 bg-gray-200 dark:bg-white/10 rounded-full overflow-hidden">
               <div class="relative h-full w-3/4 rounded-full bg-gradient-to-r from-secondary to-accent-pink">
                 <div class="progress-sheen"></div>
               </div>
             </div>
-            <p class="text-xs text-secondary font-bold mt-3 uppercase tracking-wider">Anuncio Pendiente</p>
+            <p class="text-[10px] md:text-xs text-secondary font-bold mt-2 md:mt-3 uppercase tracking-wider">Anuncio Pendiente</p>
           </div>
         </div>
         <div
-          class="absolute -top-6 -right-6 w-24 h-24 bg-gradient-to-br from-secondary to-accent-pink rounded-full blur-2xl opacity-40 animate-pulse-slow"
+          class="absolute -top-6 -right-6 w-24 h-24 bg-gradient-to-br from-secondary to-accent-pink rounded-full blur-2xl opacity-40 animate-pulse-slow hidden md:block"
           style={{ animationDelay: "1s" }}
         ></div>
-        <div class="absolute -bottom-6 -left-6 w-32 h-32 bg-cncf-blue rounded-full blur-3xl opacity-30 animate-pulse-slow"></div>
+        <div class="absolute -bottom-6 -left-6 w-32 h-32 bg-cncf-blue rounded-full blur-3xl opacity-30 animate-pulse-slow hidden md:block"></div>
       </div>
     </div>
   </Reveal>
@@ -78,70 +78,70 @@ import Reveal from './Reveal.astro';
 
 <div
   id="local-expert-modal"
-  class="fixed inset-0 z-50 hidden items-center justify-center p-4 flex"
+  class="fixed inset-0 z-50 hidden items-center justify-center p-2 md:p-4 flex overflow-y-auto"
   aria-hidden="true"
 >
   <div
     class="absolute inset-0 bg-black/60 backdrop-blur-sm transition-opacity"
     data-close-modal
   ></div>
-  <div class="relative max-w-2xl w-full bg-white dark:bg-[#0c1424] border border-gray-200 dark:border-white/10 rounded-2xl shadow-2xl overflow-hidden animate-fade-in-up">
-    <div class="flex items-center justify-between px-6 py-4 border-b border-gray-100 dark:border-white/10">
+  <div class="relative max-w-2xl w-full max-h-[90vh] md:max-h-[85vh] bg-white dark:bg-[#0c1424] border border-gray-200 dark:border-white/10 rounded-2xl shadow-2xl overflow-hidden animate-fade-in-up my-auto flex flex-col">
+    <div class="flex items-center justify-between px-4 md:px-6 py-3 md:py-4 border-b border-gray-100 dark:border-white/10 flex-shrink-0">
       <div>
         <p class="text-xs font-semibold uppercase text-secondary tracking-[0.2em]">Criterios</p>
-        <h3 class="text-xl md:text-2xl font-bold text-slate-900 dark:text-white">Premio Local Expert 2026</h3>
+        <h3 class="text-lg md:text-xl lg:text-2xl font-bold text-slate-900 dark:text-white">Premio Local Expert 2026</h3>
       </div>
       <button
-        class="size-10 inline-flex items-center justify-center rounded-full text-gray-500 hover:text-slate-900 dark:text-gray-300 hover:bg-gray-100/80 dark:hover:bg-white/5 transition-colors"
+        class="size-8 md:size-10 inline-flex items-center justify-center rounded-full text-gray-500 hover:text-slate-900 dark:text-gray-300 hover:bg-gray-100/80 dark:hover:bg-white/5 transition-colors flex-shrink-0"
         aria-label="Cerrar modal"
         data-close-modal
       >
-        <span class="material-symbols-outlined">close</span>
+        <span class="material-symbols-outlined text-lg md:text-xl">close</span>
       </button>
     </div>
 
-    <div class="px-6 py-5 space-y-4 text-gray-700 dark:text-gray-200">
-      <p class="text-sm leading-relaxed">
+    <div class="px-4 md:px-6 py-4 md:py-5 space-y-3 md:space-y-4 text-gray-700 dark:text-gray-200 overflow-y-auto flex-1">
+      <p class="text-xs md:text-sm leading-relaxed">
         Reconocemos a quienes elevan la comunidad Cloud Native en La Rioja. Buscamos perfiles que combinen
         impacto técnico y generosidad al compartir conocimiento.
       </p>
-      <p class="text-sm leading-relaxed text-secondary font-semibold">
+      <p class="text-xs md:text-sm leading-relaxed text-secondary font-semibold">
         No habrá nominaciones abiertas: el jurado interno seleccionará directamente a la persona galardonada en base a estos criterios.
       </p>
-      <ul class="space-y-3">
-        <li class="flex gap-3">
-          <span class="material-symbols-outlined text-secondary">emoji_objects</span>
-          <div>
-            <p class="font-semibold">Impacto comunitario</p>
-            <p class="text-sm text-gray-600 dark:text-gray-400">Liderazgo en meetups locales, mentoría o creación de iniciativas abiertas.</p>
+      <ul class="space-y-2.5 md:space-y-3">
+        <li class="flex gap-2 md:gap-3">
+          <span class="material-symbols-outlined text-secondary text-lg md:text-xl flex-shrink-0 mt-0.5">emoji_objects</span>
+          <div class="min-w-0">
+            <p class="font-semibold text-sm md:text-base">Impacto comunitario</p>
+            <p class="text-xs md:text-sm text-gray-600 dark:text-gray-400 leading-relaxed">Liderazgo en meetups locales, mentoría o creación de iniciativas abiertas.</p>
           </div>
         </li>
-        <li class="flex gap-3">
-          <span class="material-symbols-outlined text-secondary">hub</span>
-          <div>
-            <p class="font-semibold">Contribución técnica</p>
-            <p class="text-sm text-gray-600 dark:text-gray-400">Participación en proyectos CNCF u open source, charlas o demos hands-on.</p>
+        <li class="flex gap-2 md:gap-3">
+          <span class="material-symbols-outlined text-secondary text-lg md:text-xl flex-shrink-0 mt-0.5">hub</span>
+          <div class="min-w-0">
+            <p class="font-semibold text-sm md:text-base">Contribución técnica</p>
+            <p class="text-xs md:text-sm text-gray-600 dark:text-gray-400 leading-relaxed">Participación en proyectos CNCF u open source, charlas o demos hands-on.</p>
           </div>
         </li>
-        <li class="flex gap-3">
-          <span class="material-symbols-outlined text-secondary">diversity_3</span>
-          <div>
-            <p class="font-semibold">Inclusión y mentoring</p>
-            <p class="text-sm text-gray-600 dark:text-gray-400">Acciones que amplían la participación de nuevos perfiles y voces diversas.</p>
+        <li class="flex gap-2 md:gap-3">
+          <span class="material-symbols-outlined text-secondary text-lg md:text-xl flex-shrink-0 mt-0.5">diversity_3</span>
+          <div class="min-w-0">
+            <p class="font-semibold text-sm md:text-base">Inclusión y mentoring</p>
+            <p class="text-xs md:text-sm text-gray-600 dark:text-gray-400 leading-relaxed">Acciones que amplían la participación de nuevos perfiles y voces diversas.</p>
           </div>
         </li>
-        <li class="flex gap-3">
-          <span class="material-symbols-outlined text-secondary">handshake</span>
-          <div>
-            <p class="font-semibold">Colaboración local</p>
-            <p class="text-sm text-gray-600 dark:text-gray-400">Trabajo con empresas, instituciones o comunidades de La Rioja para proyectos cloud/IA.</p>
+        <li class="flex gap-2 md:gap-3">
+          <span class="material-symbols-outlined text-secondary text-lg md:text-xl flex-shrink-0 mt-0.5">handshake</span>
+          <div class="min-w-0">
+            <p class="font-semibold text-sm md:text-base">Colaboración local</p>
+            <p class="text-xs md:text-sm text-gray-600 dark:text-gray-400 leading-relaxed">Trabajo con empresas, instituciones o comunidades de La Rioja para proyectos cloud/IA.</p>
           </div>
         </li>
-        <li class="flex gap-3">
-          <span class="material-symbols-outlined text-secondary">schedule</span>
-          <div>
-            <p class="font-semibold">Ejecutado en 2025-2026</p>
-            <p class="text-sm text-gray-600 dark:text-gray-400">Acciones realizadas o en marcha durante los últimos 12 meses.</p>
+        <li class="flex gap-2 md:gap-3">
+          <span class="material-symbols-outlined text-secondary text-lg md:text-xl flex-shrink-0 mt-0.5">schedule</span>
+          <div class="min-w-0">
+            <p class="font-semibold text-sm md:text-base">Ejecutado en 2025-2026</p>
+            <p class="text-xs md:text-sm text-gray-600 dark:text-gray-400 leading-relaxed">Acciones realizadas o en marcha durante los últimos 12 meses.</p>
           </div>
         </li>
       </ul>
