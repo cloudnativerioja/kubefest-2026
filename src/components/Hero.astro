@@ -20,7 +20,7 @@ const eventDateISO = EVENT_DATE.toISOString();
     <div class="@container">
       <div class="@[480px]:p-4">
         <div
-            class="hero-bg relative flex min-h-screen md:min-h-[640px] flex-col gap-6 overflow-hidden rounded-none md:rounded-xl items-center justify-center p-8 text-center"
+            class="hero-bg relative flex min-h-[580px] md:min-h-[640px] flex-col gap-4 md:gap-6 overflow-hidden rounded-none md:rounded-xl items-center justify-center pt-2 pb-4 px-4 md:p-8 text-center"
         >
             <Image
               src={heroBg}
@@ -36,24 +36,24 @@ const eventDateISO = EVENT_DATE.toISOString();
                   'linear-gradient(135deg, rgba(11, 17, 32, 0.82) 0%, rgba(0, 71, 141, 0.65) 100%)',
               }}
             ></div>
-          <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-cncf-blue/20 blur-[120px] rounded-full pointer-events-none animate-pulse-slow"></div>
-          <div class="relative flex flex-col gap-4 z-10 max-w-3xl animate-fade-in-up">
+          <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] md:w-[600px] md:h-[600px] bg-cncf-blue/20 blur-[80px] md:blur-[120px] rounded-full pointer-events-none animate-pulse-slow"></div>
+          <div class="relative flex flex-col gap-3 md:gap-4 z-10 max-w-3xl animate-fade-in-up px-2 md:px-0">
             <a
               href="#premio-local-expert"
-              class="group inline-flex items-center justify-center gap-2 px-4 py-1.5 rounded-full bg-secondary/15 border border-secondary/40 backdrop-blur-md w-fit mx-auto shadow-lg transition-all hover:scale-[1.02]"
+              class="group inline-flex items-center justify-center gap-1.5 md:gap-2 px-3 md:px-4 py-1 md:py-1.5 rounded-full bg-secondary/15 border border-secondary/40 backdrop-blur-md w-fit mx-auto shadow-lg transition-all hover:scale-[1.02]"
             >
-              <span class="material-symbols-outlined text-sm text-secondary group-hover:animate-pulse">workspace_premium</span>
-              <span class="text-xs font-bold uppercase tracking-wider text-secondary">Premio Local Expert 2026</span>
-              <span class="material-symbols-outlined text-xs text-secondary/80 transition-transform group-hover:translate-x-0.5">arrow_downward</span>
+              <span class="material-symbols-outlined text-xs md:text-sm text-secondary group-hover:animate-pulse">workspace_premium</span>
+              <span class="text-[10px] md:text-xs font-bold uppercase tracking-wider text-secondary">Premio Local Expert 2026</span>
+              <span class="material-symbols-outlined text-[10px] md:text-xs text-secondary/80 transition-transform group-hover:translate-x-0.5">arrow_downward</span>
             </a>
-            <div class="inline-flex items-center justify-center gap-2 px-4 py-1.5 rounded-full bg-white/10 border border-white/20 backdrop-blur-md w-fit mx-auto shadow-lg">
-              <span class="material-symbols-outlined text-sm text-cncf-blue">calendar_today</span>
-              <span class="text-xs font-bold uppercase tracking-wider text-white">21 Febrero 2026</span>
-              <span class="w-1 h-1 rounded-full bg-white/40 mx-1"></span>
-              <span class="material-symbols-outlined text-sm text-secondary">location_on</span>
-              <span class="text-xs font-bold uppercase tracking-wider text-white">Logroño, La Rioja</span>
+            <div class="inline-flex items-center justify-center gap-1.5 md:gap-2 px-3 md:px-4 py-1 md:py-1.5 rounded-full bg-white/10 border border-white/20 backdrop-blur-md w-fit mx-auto shadow-lg flex-wrap">
+              <span class="material-symbols-outlined text-xs md:text-sm text-cncf-blue">calendar_today</span>
+              <span class="text-[10px] md:text-xs font-bold uppercase tracking-wider text-white">21 Febrero 2026</span>
+              <span class="w-0.5 h-0.5 md:w-1 md:h-1 rounded-full bg-white/40 mx-0.5 md:mx-1"></span>
+              <span class="material-symbols-outlined text-xs md:text-sm text-secondary">location_on</span>
+              <span class="text-[10px] md:text-xs font-bold uppercase tracking-wider text-white">Logroño, La Rioja</span>
             </div>
-            <h1 class="text-white text-5xl font-black leading-tight tracking-[-0.033em] md:text-6xl lg:text-7xl drop-shadow-2xl mt-4">
+            <h1 class="text-white text-4xl md:text-6xl lg:text-6xl xl:text-7xl font-black leading-tight tracking-[-0.033em] drop-shadow-2xl mt-2 md:mt-4 px-2">
               Infraestructura, <br />
               <span class="text-transparent bg-clip-text bg-gradient-to-r from-cncf-blue via-[#00a3ff] to-secondary">
                 Kubernetes e IA
@@ -61,13 +61,13 @@ const eventDateISO = EVENT_DATE.toISOString();
             </h1>
             
             <Reveal mode="children" className="w-full">
-              <div class="grid grid-cols-4 gap-3 md:gap-6 w-full max-w-2xl mx-auto my-6 md:my-8" data-event-date={eventDateISO}>
+              <div class="grid grid-cols-4 gap-2 md:gap-3 lg:gap-6 w-full max-w-2xl mx-auto my-4 md:my-6 lg:my-8 px-2 md:px-0" data-event-date={eventDateISO}>
                 {countdownItems.map((item) => (
                   <div
-                    class="flex flex-col p-3 md:p-4 bg-black/20 backdrop-blur-md rounded-xl border border-white/10 items-center shadow-xl hover:border-cncf-blue/50 transition-colors duration-300"
+                    class="flex flex-col p-2 md:p-3 lg:p-4 bg-black/20 backdrop-blur-md rounded-lg md:rounded-xl border border-white/10 items-center shadow-xl hover:border-cncf-blue/50 transition-colors duration-300"
                   >
-                    <span id={item.id} class="text-3xl md:text-5xl font-bold text-white font-display">{item.val}</span>
-                    <span class="text-[10px] md:text-xs font-bold text-cncf-blue uppercase tracking-wider mt-1">
+                    <span id={item.id} class="text-3xl md:text-4xl lg:text-5xl font-bold text-white font-display">{item.val}</span>
+                    <span class="text-[10px] md:text-xs lg:text-xs font-bold text-cncf-blue uppercase tracking-wider mt-0.5 md:mt-1">
                       {item.label}
                     </span>
                   </div>
@@ -75,18 +75,18 @@ const eventDateISO = EVENT_DATE.toISOString();
               </div>
             </Reveal>
 
-            <p class="text-gray-200 text-lg font-normal leading-relaxed md:text-xl max-w-lg mx-auto drop-shadow-md">
+            <p class="text-gray-200 text-base md:text-xl lg:text-xl font-normal leading-relaxed max-w-lg mx-auto drop-shadow-md px-2 md:px-0">
               Logroño se convierte en el epicentro Cloud Native. Únete a la revolución de la infraestructura inteligente.
             </p>
           </div>
           
-          <Reveal delay={0.5} className="relative flex flex-wrap gap-4 justify-center z-10 mt-6">
-            <a href={TICKETS_URL} target="_blank" rel="noopener noreferrer" class="flex min-w-[160px] cursor-pointer items-center justify-center rounded-lg h-12 px-6 bg-cncf-blue hover:bg-cncf-dark transition-all hover:scale-105 hover:-translate-y-1 text-white text-base font-bold shadow-[0_4px_20px_rgba(0,134,255,0.4)]">
+          <Reveal delay={0.5} className="relative flex flex-col sm:flex-row flex-wrap gap-3 md:gap-4 justify-center z-10 mt-4 md:mt-6 px-2 md:px-0">
+            <a href={TICKETS_URL} target="_blank" rel="noopener noreferrer" class="flex w-full sm:w-auto sm:min-w-[160px] cursor-pointer items-center justify-center rounded-lg h-11 md:h-12 px-5 md:px-6 bg-cncf-blue hover:bg-cncf-dark transition-all hover:scale-105 hover:-translate-y-1 text-white text-sm md:text-base font-bold shadow-[0_4px_20px_rgba(0,134,255,0.4)]">
               <span class="mr-2">Reservar entrada</span>
-              <span class="material-symbols-outlined text-sm">arrow_forward</span>
+              <span class="material-symbols-outlined text-xs md:text-sm">arrow_forward</span>
             </a>
-            <a href="#agenda" class="flex min-w-[160px] cursor-pointer items-center justify-center rounded-lg h-12 px-6 bg-transparent border-2 border-white/30 hover:border-white/60 hover:bg-white/10 transition-all hover:scale-105 hover:-translate-y-1 text-white text-base font-bold backdrop-blur-sm">
-              <span class="material-symbols-outlined text-sm mr-2">event</span>
+            <a href="#agenda" class="flex w-full sm:w-auto sm:min-w-[160px] cursor-pointer items-center justify-center rounded-lg h-11 md:h-12 px-5 md:px-6 bg-transparent border-2 border-white/30 hover:border-white/60 hover:bg-white/10 transition-all hover:scale-105 hover:-translate-y-1 text-white text-sm md:text-base font-bold backdrop-blur-sm">
+              <span class="material-symbols-outlined text-xs md:text-sm mr-2">event</span>
               <span>Ver agenda</span>
             </a>
           </Reveal>
