@@ -18,26 +18,33 @@ test.describe('KubeFest 2026 Homepage - Desktop', () => {
     await expect(page.locator('.hero-bg').first()).toBeVisible();
   });
 
-  test('navigation anchors exist and update URL hash', async ({ page }) => {
-    const navLinks = page.locator('nav a[href^="#"]');
-    const count = await navLinks.count();
-    expect(count).toBeGreaterThan(0);
+  test('navigation anchors exist and navigate to sections', async ({ page }) => {
+  await page.goto('/');
+  await expect(page.locator('#navbar')).toBeVisible();
 
-    const toCheck = Math.min(count, 3);
-    for (let i = 0; i < toCheck; i++) {
-      const link = navLinks.nth(i);
-      await expect(link).toBeVisible();
+  const navLinks = page.locator('#navbar a[href^="#"]');
+  const count = await navLinks.count();
+  expect(count).toBeGreaterThan(0);
 
-      const href = await link.getAttribute('href');
-      expect(href).toMatch(/^#/);
+  const toCheck = Math.min(count, 3);
 
-      const targetId = href!.slice(1);
-      await expect(page.locator(`#${targetId}`), `Missing target for ${href}`).toHaveCount(1);
+  for (let i = 0; i < toCheck; i++) {
+    const link = navLinks.nth(i);
+    await expect(link).toBeVisible();
 
-      await link.click();
-      await expect(page).toHaveURL(new RegExp(`${href}$`));
-    }
-  });
+    const href = await link.getAttribute('href');
+    expect(href).toMatch(/^#.+/);
+
+    const targetId = href!.slice(1);
+    const target = page.locator(`#${targetId}`);
+    await expect(target, `Missing target for ${href}`).toHaveCount(1);
+
+
+    await link.click();
+
+    await expect(target).toBeInViewport({ timeout: 5000 });
+  }
+});
 
   test('displays footer', async ({ page }) => {
     const footer = page.locator('footer').first();
