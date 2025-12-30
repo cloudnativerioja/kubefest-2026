@@ -16,8 +16,7 @@ export default {
         "cncf-light": "#76B3EE",
       },
       fontFamily: {
-        "display": ["Space Grotesk", "sans-serif"],
-        "body": ["Noto Sans", "sans-serif"],
+        "display": ["var(--font-space-grotesk)"],
       },
       borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
       animation: {
