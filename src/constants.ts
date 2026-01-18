@@ -9,7 +9,7 @@ import adrianBarrioAndres from "./images/people/adrian-barrio.jpeg";
 export const EVENT_DATE = new Date("2026-02-28T09:00:00+01:00");
 
 // Tickets/Registration link
-export const TICKETS_URL = "https://community.cncf.io/cloud-native-rioja/";
+export const TICKETS_URL = "https://community.cncf.io/events/details/cncf-cloud-native-rioja-presents-kubefest-2026/";
 
 export const SPEAKERS: Speaker[] = [
   {
