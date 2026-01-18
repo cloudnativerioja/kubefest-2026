@@ -55,7 +55,9 @@ const speakersWithStyles = SPEAKERS.map((speaker, idx) => {
             roleColorClass,
           }) => (
             <a
-              href="#"
+              href={speaker.link}
+              target="_blank"
+              rel="noopener noreferrer"
               class={`group flex flex-col items-center text-center cursor-pointer`}
             >
               <div

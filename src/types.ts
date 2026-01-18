@@ -3,6 +3,7 @@ export interface Speaker {
   role: string;
   company: string;
   image: string;
+  link: string;
 }
 
 export interface AgendaItem {
