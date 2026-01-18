@@ -13,6 +13,13 @@ const countdownItems = [
 
 // Format the event date as ISO string for JavaScript
 const eventDateISO = EVENT_DATE.toISOString();
+
+// Format the event date for display in Spanish
+const eventDateFormatted = EVENT_DATE.toLocaleDateString('es-ES', {
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric'
+});
 ---
 
 <div class="flex flex-1 justify-center py-0 md:py-5 px-0 md:px-4">
@@ -48,7 +55,7 @@ const eventDateISO = EVENT_DATE.toISOString();
             </a>
             <div class="inline-flex items-center justify-center gap-1.5 md:gap-2 px-3 md:px-4 py-1 md:py-1.5 rounded-full bg-white/10 border border-white/20 backdrop-blur-md w-fit mx-auto shadow-lg flex-wrap">
               <span class="material-symbols-outlined text-xs md:text-sm text-cncf-blue">calendar_today</span>
-              <span class="text-[10px] md:text-xs font-bold uppercase tracking-wider text-white">28 Febrero 2026</span>
+              <span class="text-[10px] md:text-xs font-bold uppercase tracking-wider text-white">{eventDateFormatted}</span>
               <span class="w-0.5 h-0.5 md:w-1 md:h-1 rounded-full bg-white/40 mx-0.5 md:mx-1"></span>
               <span class="material-symbols-outlined text-xs md:text-sm text-secondary">location_on</span>
               <span class="text-[10px] md:text-xs font-bold uppercase tracking-wider text-white">Logroño, La Rioja</span>

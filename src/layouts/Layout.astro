@@ -1,6 +1,7 @@
 ---
 import Font from 'astro/components/Font.astro';
 import '../styles/global.css';
+import { EVENT_DATE, TICKETS_URL } from '../constants';
 
 interface Props {
   title?: string;
@@ -11,6 +12,23 @@ const {
   title = "KubeFest 2026 - Infraestructura, Kubernetes e IA en Logroño",
   description = "KubeFest 2026: Conferencia sobre infraestructura, Kubernetes e IA en Logroño"
 } = Astro.props;
+
+const site = import.meta.env.SITE;
+const canonicalUrl = site ? new URL(Astro.url.pathname, site).toString() : undefined;
+const ogImagePath = "/event-thumb.png";
+const ogImageUrl = site ? new URL(ogImagePath, site).toString() : ogImagePath;
+
+const eventSchema = {
+  "@context": "https://schema.org",
+  "@type": "Event",
+  name: "KubeFest 2026",
+  description,
+  startDate: EVENT_DATE.toISOString(),
+  eventStatus: "https://schema.org/EventScheduled",
+  eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
+  url: TICKETS_URL,
+  image: [ogImageUrl]
+};
 ---
 
 <!DOCTYPE html>
@@ -59,6 +77,24 @@ const {
     </noscript>
     
     <meta name="description" content={description} />
+    {canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    {canonicalUrl && <meta property="og:url" content={canonicalUrl} />}
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:locale" content="es_ES" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageUrl} />
+
+    <!-- Basic Schema.org -->
+    <script type="application/ld+json" set:html={JSON.stringify(eventSchema)}></script>
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
   </head>
   <body class="bg-background-light dark:bg-background-dark">
