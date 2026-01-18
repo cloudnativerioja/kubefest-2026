@@ -6,7 +6,7 @@ import diegoCristobalHerreros from "./images/people/diego-cristobal.jpeg";
 import adrianBarrioAndres from "./images/people/adrian-barrio.jpeg";
 
 // Event date: February 21, 2026 at 9:00 AM (local time in Logroño, Spain - Europe/Madrid timezone)
-export const EVENT_DATE = new Date("2026-02-21T09:00:00+01:00");
+export const EVENT_DATE = new Date("2026-02-28T09:00:00+01:00");
 
 // Tickets/Registration link
 export const TICKETS_URL = "https://community.cncf.io/cloud-native-rioja/";
@@ -51,7 +51,7 @@ export const AGENDA: AgendaItem[] = [
     type: "Cloud Native",
     title: "Funciona en mi máquina... y también en producción",
     subtitle: "Como crear entornos efímeros que no mienten",
-    speaker: SPEAKERS[1], // Enrique
+    speaker: SPEAKERS[1],
   },
   {
     time: "10:15",
@@ -59,7 +59,7 @@ export const AGENDA: AgendaItem[] = [
     type: "Architecture",
     title: "Nginx ha muerto. Larga vida a Gateway Api",
     subtitle: "El nuevo estándar para exponer servicios en Kubernetes",
-    speaker: SPEAKERS[2], // Jorge
+    speaker: SPEAKERS[2],
   },
   {
     time: "",
@@ -74,7 +74,7 @@ export const AGENDA: AgendaItem[] = [
     type: "Scaling",
     title: "Más Allá del HPA",
     subtitle: "El arte del Autoescalado guiado por Eventos.",
-    speaker: SPEAKERS[0], // Jorge
+    speaker: SPEAKERS[0],
   },
   {
     time: "12:15",
@@ -82,7 +82,7 @@ export const AGENDA: AgendaItem[] = [
     type: "Security",
     title: "Holistic Cloud Security with Prowler",
     subtitle: "Abordaremos la seguridad cloud integrando detección continua, cumplimiento y gestion de riesgos en una única estrategia.",
-    speaker: SPEAKERS[3], // Toni
+    speaker: SPEAKERS[3],
   },
   {
     time: "13:00",
@@ -99,7 +99,7 @@ export const PREVIOUS_EDITIONS: PreviousEdition[] = [
     location: "Logroño (Federación de Empresas de La Rioja)",
     image: kubefest2024.src,
     colorClass: "bg-cncf-blue/80",
-    link: "https://2024.kubefest.com/",
+    link: "https://2024.kubefest.com",
   },
   {
     year: "2025",
@@ -107,7 +107,7 @@ export const PREVIOUS_EDITIONS: PreviousEdition[] = [
     location: "Logroño (La Barra de SDi)",
     image: kubefest2025.src,
     colorClass: "bg-secondary/80",
-    link: "https://2025.kubefest.com/",
+    link: "https://2025.kubefest.com",
   },
 ];
 
