@@ -13,46 +13,28 @@ export const TICKETS_URL = "https://community.cncf.io/cloud-native-rioja/";
 
 export const SPEAKERS: Speaker[] = [
   {
-    name: "Sarah Chen",
-    role: "Principal Engineer",
-    company: "Google Cloud",
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuBINgIrMf3lFpF7CjthUWgGz6UYT5CEmCKZ7c7Zxjuei6z8OHm5UuyE-UA79g7GQydPf5RLqSoM-kzc8IOicv13sXCdOS0neLMirmITNzNBA9e9mXAqGR11wt8kGpakPdcc0y3dgwRkM-ZqIb4rhF01B1yPLb2xFGBw4tHVjSeIMTa4w2GpVBOc8PAAepH4YKj6MN_hdDlkmmDCI2kF6M14fIWUNlv7tAKRweDL_aOgJlHONeDtIft2jb6jj89pHjvOEJ7X_tYOpA",
+    name: "Jorge Turrado",
+    role: "Principal SRE",
+    company: "SCRM Lidl International Hub - KEDA maintainer",
+    image: "https://media.licdn.com/dms/image/v2/D4D03AQGd8ifkzxzkyA/profile-displayphoto-scale_200_200/B4DZmK5NKOIgAY-/0/1758971877301?e=1770249600&v=beta&t=dZgUnshjkM7GcoJ7Lx_38mMhrpznyc82rXr-c8P4UH4",
   },
   {
-    name: "David Miller",
-    role: "Staff SRE Lead",
-    company: "Spotify",
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuAeot_gAS2NpKoqNqmwaZeiPW-FOGyDu8sOWoRzq7ME8JPNIx6k5Hqpcvq3GJXs7sYw1K_WJZDpdQeBwz8Vc0nGIdvOcnXqoLsCyOAKVxMuJ_dDP_buhbOxvZhoXz-GGUm0qfzArXJR2xUe9i1nJBP82BWyaD7cp10RIg0XUJNdITPy8gI5whmEcp3uZBmjIkszXNbFOe3y1jnr11q9G3za5s6nAViOO1dIYR77WDxPTsnDkMhEl1AfMVOiUXE68Ck3wpSSp-XOTw",
+    name: "Enrique Hormilla",
+    role: "Platform Engineer",
+    company: "Troop",
+    image: "https://media.licdn.com/dms/image/v2/D4D03AQEP0ueQaPhuRQ/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1690453544873?e=1770249600&v=beta&t=xIgCwRdbXl_W9hwWMp3nf1PwwndIny9SXSFYWuIKxD0",
   },
   {
-    name: "Elena Rodriguez",
-    role: "Senior Architect",
-    company: "Red Hat",
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuDfbCJxJJYFQnmUUNIdoqV3AgoNfBuA6EVq82e1GKDCJE4gTsxgzLoQ6QgUf0AJMyTVscVDkdk7z6_YCAiY5zcktRfr4mPkzje92LAxJX8oWRJQRM5T1u6-qty-QY8ogdUg8s-cSsONvibZ-SoB-UYHgeaBw6nBFATjkcIkClelvnK35uLMqey5iTJwql_gtYsMT1gpE2RV30Em2WwenozvvCkWr24pPXzNibfoidaUTuUU1TrEMr1wdKVz703Dlr217iw2C5Bl1A",
+    name: "Jorge Pérez",
+    role: "Kubernetes Architect",
+    company: "Bosonit",
+    image: "https://media.licdn.com/dms/image/v2/D4E03AQGBbpogrTtA8Q/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1711650504093?e=1770249600&v=beta&t=ngD2WqlrDjaZV8DXd2f3-w28pD23hYTc5Y_EzlzfW04",
   },
   {
-    name: "Marcus Johnson",
-    role: "Performance Eng.",
-    company: "Netflix",
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuBLX6ii2-c8DdXSRLFyyR_5flBmcTaLpJ2Ot9CTk65qnalu1OvkWqysvPyuIGVT4BzTA-HcykdS2S0s6k8USaTPgBAt_013zwNkXSp-rI3NhRfl8ZEZZLJTcS5qTKzVSGyai80055wPxBxvBP_IWzn0znSWD6zzHLq3d_BB71DX2t2Is0JLYi8RjhSZsm_d2ct5tC6dmbPJGin12DWOsrzLxcDoOtspKUEGLY7wzc1w5zHFthaTj4FzU8sX8vKShdbB_xYHJYWHgw",
-  },
-  {
-    name: "Sofia Mendez",
-    role: "AI Researcher",
-    company: "Microsoft",
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuAFGGnBCSEEkXsR5tICLyFA45t6TyUMc_H2ykl64TqQr8wqcOilSP2nBANv7OwDwez_cXwRI9lxwiMzPZ2BJ5Y1zbetzbonVikLo3I-qi4UiaSgUARNYgYHKbeQzcYv5vvCXrdyXQs_c-GwqQOV_91jRT0qhwqli96TyDhrGxIZWSqQq7mTCSVhOUUqh2r-rEHESsZtugojf4hDpB3E26NNPzLiz3kRownysLjCVDheJBjOtBNoDdX3eK2q38-8DeFIvmnZ4kWfVw",
-  },
-  {
-    name: "Raj Patel",
-    role: "Cloud Architect",
-    company: "Amazon",
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuBLJ0XUwYBRHqWPkgvruSDxMhs27JB5Je9TseQ0KvfAt2Tg59Xoh_43CjMes63B_SsM0kNgh17DThn1aavHNNQp6RBtzEGn1e4sJ-aj1QYlp7m_4y6ZFc85HoJIBcgU5cs7DxoTK6Jc3t-DgaT_AqszPDkDLNXzwb29zwxAohHYroR8G7OPVfV031efS8Z94h61f7DCgHcTR2GbCby9ICLc1Sh8tJUbddTSptMF_I12yT5kXkJu_AeYSzA4QlinX0OFRIQMRBpjlw",
-  },
-  {
-    name: "Claire Dubois",
-    role: "Dev Advocate",
-    company: "Docker",
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuDc0pzO1XSQ6jCNKrhK3RtZGN9ps0n0la0Pg2CwOC-R4AJWcGS2jaIY2RZO9XiU9KG0mxshh6VfX44kxAxKBOhbZEmpZOjew77dqHPUwldp-rbVDuqiFwNyGzRe3Qtf-ksaO3M5aTcINpzFYW_B2gi15p6WKfnPnRIcKL0CHgh8EI9GHmIwNdO-R8qms1kz12PcWl53kDV8cogamWkRP-XSk2t51YPIdctMjtcbUP9wna2cT9K9t0F3k1jHyAG8qivNDoLFlxIM4A",
+    name: "Toni de la Fuente",
+    role: "Creator of Prowler, Founder and CEO",
+    company: "Prowler",
+    image: "https://media.licdn.com/dms/image/v2/D4D03AQEC9geOTeaI3w/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1700745483658?e=1770249600&v=beta&t=2ZMCHkvPhYCBjtvtsa0o0T_vmD0DtSq_lyWLK0Xk6ZI",
   },
 ];
 
@@ -66,26 +48,18 @@ export const AGENDA: AgendaItem[] = [
   {
     time: "09:30",
     period: "AM",
-    type: "Keynote",
-    title: "Estado de la IA en Infraestructura",
-    subtitle: "Visiones futuras: Cómo Kubernetes impulsa la revolución de la Inteligencia Artificial.",
-    speaker: SPEAKERS[0], // Sarah Chen
+    type: "Cloud Native",
+    title: "Funciona en mi máquina... y también en producción",
+    subtitle: "Como crear entornos efímeros que no mienten",
+    speaker: SPEAKERS[1], // Enrique
   },
   {
-    time: "10:45",
+    time: "10:15",
     period: "AM",
-    type: "Security",
-    title: "Seguridad Zero Trust en Modelos LLM",
-    subtitle: "Protegiendo la infraestructura de IA en entornos de alto riesgo.",
-    speaker: SPEAKERS[2], // Elena Rodriguez
-  },
-  {
-    time: "11:30",
-    period: "AM",
-    type: "Scaling",
-    title: "Escalado de Inferencias con KEDA",
-    subtitle: "Autoscaling dirigido por eventos para workloads de IA.",
-    speaker: SPEAKERS[1], // David Miller
+    type: "Architecture",
+    title: "Nginx ha muerto. Larga vida a Gateway Api",
+    subtitle: "El nuevo estándar para exponer servicios en Kubernetes",
+    speaker: SPEAKERS[2], // Jorge
   },
   {
     time: "",
@@ -95,23 +69,23 @@ export const AGENDA: AgendaItem[] = [
     isBreak: true,
   },
   {
-    time: "12:45",
-    period: "PM",
-    type: "Architecture",
-    title: "Microservicios Inteligentes",
-    subtitle: "Integrando agentes de IA en arquitecturas de microservicios.",
-    speaker: SPEAKERS[3], // Marcus Johnson
+    time: "11:30",
+    period: "AM",
+    type: "Scaling",
+    title: "Más Allá del HPA",
+    subtitle: "El arte del Autoescalado guiado por Eventos.",
+    speaker: SPEAKERS[0], // Jorge
   },
   {
-    time: "13:30",
+    time: "12:15",
     period: "PM",
-    type: "Cloud Native",
-    title: "Serverless y GPUs",
-    subtitle: "Optimizando costes de computación para entrenamiento de modelos.",
-    speaker: SPEAKERS[6], // Claire Dubois
+    type: "Security",
+    title: "Holistic Cloud Security with Prowler",
+    subtitle: "Abordaremos la seguridad cloud integrando detección continua, cumplimiento y gestion de riesgos en una única estrategia.",
+    speaker: SPEAKERS[3], // Toni
   },
   {
-    time: "14:15",
+    time: "13:00",
     period: "END",
     title: "Networking & Cierre",
     subtitle: "Espacio para conectar en el ecosistema de Logroño.",
@@ -140,13 +114,13 @@ export const PREVIOUS_EDITIONS: PreviousEdition[] = [
 export const ORGANIZERS: Organizer[] = [
   {
     name: "Adrián Barrio Andrés",
-    role: "Site Reliability Engineer @ Oracle",
+    role: "Sr. Site Reliability Engineer @ Oracle",
     image: adrianBarrioAndres.src,
     link: "https://www.linkedin.com/in/adrianbarrio/",
   },
   {
     name: "Diego Cristobal Herreros",
-    role: "Sr. Site Reliability Engineer @ Oracle",
+    role: "Sr. Manager Quality Assurance @ IONOS",
     image: diegoCristobalHerreros.src,
     link: "https://www.linkedin.com/in/diego-cristobal-herreros-60886a80/",
   },
