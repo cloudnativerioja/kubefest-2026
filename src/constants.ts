@@ -54,7 +54,7 @@ export const AGENDA: AgendaItem[] = [
     period: "AM",
     type: "Cloud Native",
     title: "Funciona en mi máquina... y también en producción",
-    subtitle: "Como crear entornos efímeros que no mienten",
+    subtitle: "Aprende a crear entornos efímeros que replican fielmente la producción. Descubre cómo usar Tilt.dev para desarrollar y probar aplicaciones en entornos replicados basados en Kubernetes, eliminando las sorpresas al desplegar.",
     speaker: SPEAKERS[1],
   },
   {
@@ -62,7 +62,7 @@ export const AGENDA: AgendaItem[] = [
     period: "AM",
     type: "Architecture",
     title: "Nginx ha muerto. Larga vida a Gateway Api",
-    subtitle: "El nuevo estándar para exponer servicios en Kubernetes",
+    subtitle: "El nuevo estándar para exponer servicios en Kubernetes. Descubre cómo Gateway API está revolucionando el enrutamiento y la gestión del tráfico, ofreciendo mayor flexibilidad, portabilidad y capacidades avanzadas de configuración.",
     speaker: SPEAKERS[2],
   },
   {
@@ -77,7 +77,7 @@ export const AGENDA: AgendaItem[] = [
     period: "AM",
     type: "Scaling",
     title: "Más Allá del HPA",
-    subtitle: "El arte del Autoescalado guiado por Eventos.",
+    subtitle: "A medida que las cargas de trabajo evolucionan, las métricas de CPU y Memoria ya no son suficientes. Presentamos KEDA, el estándar de la industria para el autoescalado basado en eventos. Exploraremos el estado del arte del autoescalado: triggers complejos, seguridad, mejores prácticas y cómo transformar aplicaciones en cargas de trabajo eficientes, rentables y resilientes, ya sea para trabajos por lotes o APIs de alto tráfico.",
     speaker: SPEAKERS[0],
   },
   {
@@ -85,7 +85,7 @@ export const AGENDA: AgendaItem[] = [
     period: "PM",
     type: "Security",
     title: "Holistic Cloud Security with Prowler",
-    subtitle: "Abordaremos la seguridad cloud integrando detección continua, cumplimiento y gestion de riesgos en una única estrategia.",
+    subtitle: "Descubre cómo Prowler (herramienta Open Source) permite abordar la seguridad cloud de forma holística, integrando detección continua, cumplimiento y gestión de riesgos. Exploraremos cómo la Infraestructura como Código (IaC) y la Inteligencia Artificial, mediante Prowler MCP y Prowler Lighthouse AI, mejoran la priorización de hallazgos y el cumplimiento continuo sin comprometer agilidad.",
     speaker: SPEAKERS[3],
   },
   {
