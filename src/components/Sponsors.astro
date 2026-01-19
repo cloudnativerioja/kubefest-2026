@@ -2,6 +2,7 @@
 import Reveal from './Reveal.astro';
 import googleLogo from '../images/sponsors/google.svg';
 import irSolucionesLogo from '../images/sponsors/ir-soluciones.svg';
+import colegioIngenieros from '../images/sponsors/colegio-ingenieros.svg'
 ---
 
 <div class="flex flex-1 justify-center py-16 px-4 md:px-0 bg-gradient-to-b from-gray-50 to-white dark:from-[#0B1120] dark:to-[#0f172a] transition-colors duration-300" id="sponsors">
@@ -33,6 +34,15 @@ import irSolucionesLogo from '../images/sponsors/ir-soluciones.svg';
         >
           <div class="absolute inset-0 bg-gradient-to-tr from-secondary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
           <img src={irSolucionesLogo.src} alt="IR Soluciones" class="logo-muted w-auto relative z-10 transition-all duration-300" loading="lazy" />
+        </a>
+        <a
+          href="https://www.irsoluciones.com/"
+          target="_blank"
+          rel="noreferrer"
+          class="h-28 w-56 p-6 bg-white dark:bg-card-dark rounded-2xl flex items-center justify-center border border-gray-200 dark:border-white/5 hover:border-secondary/50 dark:hover:border-secondary hover:shadow-xl dark:hover:shadow-[0_0_20px_rgba(214,34,147,0.15)] transition-all duration-300 group cursor-pointer hover:-translate-y-1 relative overflow-hidden"
+        >
+          <div class="absolute inset-0 bg-gradient-to-tr from-secondary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          <img src={colegioIngenieros.src} alt="IR Soluciones" class="logo-muted w-auto relative z-10 transition-all duration-300" loading="lazy" />
         </a>
       </div>
     </Reveal>
