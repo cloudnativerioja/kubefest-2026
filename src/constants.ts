@@ -4,6 +4,10 @@ import kubefest2025 from "./images/editions/kubefest-2025.webp";
 import marioEzquerro from "./images/people/mario-ezquerro.jpeg";
 import diegoCristobalHerreros from "./images/people/diego-cristobal.jpeg";
 import adrianBarrioAndres from "./images/people/adrian-barrio.jpeg";
+import jorgeTurrado from "./images/people/jorge-turrado.jpg";
+import enriqueHormilla from "./images/people/enrique-hormilla.jpg";
+import jorgePerez from "./images/people/jorge-perez.jpg";
+import toniDeLaFuente from "./images/people/toni-de-la-fuente.jpg";
 
 // Event date: February 21, 2026 at 9:00 AM (local time in Logroño, Spain - Europe/Madrid timezone)
 export const EVENT_DATE = new Date("2026-02-28T09:00:00+01:00");
@@ -16,28 +20,28 @@ export const SPEAKERS: Speaker[] = [
     name: "Jorge Turrado",
     role: "Principal SRE",
     company: "SCRM Lidl International Hub - KEDA maintainer",
-    image: "https://media.licdn.com/dms/image/v2/D4D03AQGd8ifkzxzkyA/profile-displayphoto-scale_200_200/B4DZmK5NKOIgAY-/0/1758971877301?e=1770249600&v=beta&t=dZgUnshjkM7GcoJ7Lx_38mMhrpznyc82rXr-c8P4UH4",
+    image: jorgeTurrado.src,
     link: "https://www.linkedin.com/in/jorge-turrado-ferrero/",
   },
   {
     name: "Enrique Hormilla",
     role: "Platform Engineer",
     company: "Troop",
-    image: "https://media.licdn.com/dms/image/v2/D4D03AQEP0ueQaPhuRQ/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1690453544873?e=1770249600&v=beta&t=xIgCwRdbXl_W9hwWMp3nf1PwwndIny9SXSFYWuIKxD0",
+    image: enriqueHormilla.src,
     link: "https://www.linkedin.com/in/enrique-hormilla/",
   },
   {
     name: "Jorge Pérez",
     role: "Kubernetes Architect",
     company: "Bosonit",
-    image: "https://media.licdn.com/dms/image/v2/D4E03AQGBbpogrTtA8Q/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1711650504093?e=1770249600&v=beta&t=ngD2WqlrDjaZV8DXd2f3-w28pD23hYTc5Y_EzlzfW04",
+    image: jorgePerez.src,
     link: "https://www.linkedin.com/in/jorge-p-275960300/",
   },
   {
     name: "Toni de la Fuente",
     role: "Creator of Prowler, Founder and CEO",
     company: "Prowler",
-    image: "https://media.licdn.com/dms/image/v2/D4D03AQEC9geOTeaI3w/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1700745483658?e=1770249600&v=beta&t=2ZMCHkvPhYCBjtvtsa0o0T_vmD0DtSq_lyWLK0Xk6ZI",
+    image: toniDeLaFuente.src,
     link: "https://www.linkedin.com/in/toniblyx/",
   },
 ];
