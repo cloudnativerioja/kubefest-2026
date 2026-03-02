@@ -1,0 +1,100 @@
+---
+import Reveal from './Reveal.astro';
+import { AGENDA } from '../constants';
+
+function getYouTubeId(url: string): string | null {
+  try {
+    const u = new URL(url);
+    return u.searchParams.get('v');
+  } catch {
+    return null;
+  }
+}
+
+const talksWithVideo = AGENDA.filter(
+  (item) => item.videoUrl && item.speaker && !item.isBreak && item.period !== 'END'
+);
+---
+
+<div
+  class="flex flex-1 justify-center py-20 px-4 md:px-0 bg-gradient-to-b from-gray-50 to-white dark:from-[#111827] dark:to-[#0B1120] transition-colors duration-300 relative overflow-hidden"
+  id="grabaciones"
+>
+  <div class="absolute bottom-0 left-0 w-96 h-96 bg-cncf-blue/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2"></div>
+  <div class="absolute top-1/2 right-0 w-80 h-80 bg-secondary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+  <div class="flex flex-col max-w-[1100px] flex-1 w-full z-10">
+    <Reveal className="px-4 mb-12 text-center">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cncf-blue/10 border border-cncf-blue/20 text-cncf-blue text-xs font-bold uppercase tracking-widest mb-4">
+        <span class="material-symbols-outlined text-sm">play_circle</span>
+        El evento en vídeo
+      </div>
+      <h2 class="text-slate-900 dark:text-white text-4xl font-black leading-tight tracking-[-0.02em]">
+        Revive las charlas
+      </h2>
+      <p class="text-gray-500 dark:text-gray-400 mt-4 max-w-2xl mx-auto text-lg">
+        Todas las sesiones del KubeFest 2026 disponibles en YouTube. Haz clic en cualquier charla para verla.
+      </p>
+    </Reveal>
+
+    <Reveal mode="children" className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8">
+      {talksWithVideo.map((talk) => {
+        const videoId = getYouTubeId(talk.videoUrl!);
+        if (!videoId) return null;
+        const thumbnail = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
+        return (
+          <a
+            href={talk.videoUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group block rounded-2xl overflow-hidden border border-gray-200 dark:border-white/10 bg-white dark:bg-card-dark shadow-lg hover:shadow-xl hover:shadow-cncf-blue/10 dark:hover:shadow-cncf-blue/20 transition-all duration-300 hover:-translate-y-1 hover:border-cncf-blue/30"
+            aria-label={`Ver charla: ${talk.title}`}
+          >
+            <div class="relative aspect-video bg-gray-900 overflow-hidden">
+              <img
+                src={thumbnail}
+                alt=""
+                class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                loading="lazy"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
+              <div class="absolute inset-0 flex items-center justify-center">
+                <span class="flex size-16 md:size-20 items-center justify-center rounded-full bg-cncf-blue/90 text-white shadow-2xl group-hover:scale-110 group-hover:bg-cncf-blue transition-all duration-300" aria-hidden="true">
+                  <span class="material-symbols-outlined text-4xl md:text-5xl ml-1">play_arrow</span>
+                </span>
+              </div>
+              <span class="absolute bottom-3 left-3 right-3 text-white text-sm font-medium drop-shadow-lg line-clamp-2">
+                {talk.title}
+              </span>
+            </div>
+            <div class="p-4 md:p-5">
+              <h3 class="text-lg font-bold text-slate-900 dark:text-white line-clamp-2 group-hover:text-cncf-blue transition-colors">
+                {talk.title}
+              </h3>
+              {talk.speaker && (
+                <div class="flex items-center gap-3 mt-3">
+                  <img
+                    src={talk.speaker.image}
+                    alt=""
+                    class="w-8 h-8 rounded-full border-2 border-gray-100 dark:border-white/10 object-cover"
+                  />
+                  <div class="flex flex-col min-w-0">
+                    <span class="text-sm font-semibold text-slate-800 dark:text-gray-200 truncate">
+                      {talk.speaker.name}
+                    </span>
+                    <span class="text-xs text-gray-500 dark:text-gray-400 truncate">
+                      {talk.speaker.company}
+                    </span>
+                  </div>
+                </div>
+              )}
+              <p class="mt-2 text-xs text-gray-500 dark:text-gray-400 flex items-center gap-1">
+                <span class="material-symbols-outlined text-sm">open_in_new</span>
+                Ver en YouTube
+              </p>
+            </div>
+          </a>
+        );
+      })}
+    </Reveal>
+  </div>
+</div>

@@ -135,6 +135,17 @@ import { AGENDA } from '../constants';
                   </div>
                 </div>
               )}
+              {item.videoUrl && (
+                <a
+                  href={item.videoUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="inline-flex items-center gap-2 mt-3 text-sm font-medium text-cncf-blue hover:text-cncf-dark dark:hover:text-cncf-light transition-colors"
+                >
+                  <span class="material-symbols-outlined text-lg">play_circle</span>
+                  Ver grabación
+                </a>
+              )}
             </div>
           </div>
         );

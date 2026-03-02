@@ -4,16 +4,6 @@ import { EVENT_DATE, TICKETS_URL } from '../constants';
 import { Image } from 'astro:assets';
 import heroBg from '../images/misc/servers.jpg';
 
-const countdownItems = [
-  { id: "countdown-days", val: "00", label: "Días" },
-  { id: "countdown-hours", val: "00", label: "Horas" },
-  { id: "countdown-minutes", val: "00", label: "Min" },
-  { id: "countdown-seconds", val: "00", label: "Seg" },
-];
-
-// Format the event date as ISO string for JavaScript
-const eventDateISO = EVENT_DATE.toISOString();
-
 // Format the event date for display in Spanish
 const eventDateFormatted = EVENT_DATE.toLocaleDateString('es-ES', {
   day: 'numeric',
@@ -67,19 +57,20 @@ const eventDateFormatted = EVENT_DATE.toLocaleDateString('es-ES', {
               </span>
             </h1>
             
-            <Reveal mode="children" className="w-full">
-              <div class="grid grid-cols-4 gap-2 md:gap-3 lg:gap-6 w-full max-w-2xl mx-auto my-4 md:my-6 lg:my-8 px-2 md:px-0" data-event-date={eventDateISO}>
-                {countdownItems.map((item) => (
-                  <div
-                    class="flex flex-col p-2 md:p-3 lg:p-4 bg-black/20 backdrop-blur-md rounded-lg md:rounded-xl border border-white/10 items-center shadow-xl hover:border-cncf-blue/50 transition-colors duration-300"
-                  >
-                    <span id={item.id} class="text-3xl md:text-4xl lg:text-5xl font-bold text-white font-display">{item.val}</span>
-                    <span class="text-[10px] md:text-xs lg:text-xs font-bold text-cncf-blue uppercase tracking-wider mt-0.5 md:mt-1">
-                      {item.label}
-                    </span>
-                  </div>
-                ))}
-              </div>
+            <Reveal className="w-full my-4 md:my-6 lg:my-8 px-2 md:px-0">
+              <a
+                href="#grabaciones"
+                class="group flex items-center justify-center gap-3 md:gap-4 w-full max-w-md mx-auto p-4 md:p-5 bg-black/25 backdrop-blur-md rounded-xl md:rounded-2xl border border-white/20 hover:border-cncf-blue/50 shadow-xl hover:shadow-cncf-blue/20 transition-all duration-300 hover:scale-[1.02] hover:-translate-y-0.5"
+              >
+                <span class="flex size-12 md:size-14 items-center justify-center rounded-full bg-cncf-blue/90 text-white shadow-lg group-hover:bg-cncf-blue group-hover:scale-110 transition-all duration-300">
+                  <span class="material-symbols-outlined text-3xl md:text-4xl ml-0.5">play_circle</span>
+                </span>
+                <div class="text-center md:text-left">
+                  <span class="block text-lg md:text-xl font-bold text-white">Ver grabaciones</span>
+                  <span class="block text-xs md:text-sm text-white/80">Todas las charlas en YouTube</span>
+                </div>
+                <span class="material-symbols-outlined text-2xl md:text-3xl text-white/70 group-hover:text-cncf-blue group-hover:translate-x-1 transition-all">arrow_forward</span>
+              </a>
             </Reveal>
 
             <p class="text-gray-200 text-base md:text-xl lg:text-xl font-normal leading-relaxed max-w-lg mx-auto drop-shadow-md px-2 md:px-0">
@@ -103,46 +94,3 @@ const eventDateFormatted = EVENT_DATE.toLocaleDateString('es-ES', {
   </div>
 </div>
 
-<script define:vars={{ eventDateISO }}>
-  const eventDate = new Date(eventDateISO);
-  
-  function updateCountdown() {
-    const now = new Date();
-    const difference = eventDate.getTime() - now.getTime();
-    
-    if (difference <= 0) {
-      // Event has passed
-      const daysEl = document.getElementById('countdown-days');
-      const hoursEl = document.getElementById('countdown-hours');
-      const minutesEl = document.getElementById('countdown-minutes');
-      const secondsEl = document.getElementById('countdown-seconds');
-      
-      if (daysEl) daysEl.textContent = '00';
-      if (hoursEl) hoursEl.textContent = '00';
-      if (minutesEl) minutesEl.textContent = '00';
-      if (secondsEl) secondsEl.textContent = '00';
-      return;
-    }
-    
-    const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((difference % (1000 * 60)) / 1000);
-    
-    const daysEl = document.getElementById('countdown-days');
-    const hoursEl = document.getElementById('countdown-hours');
-    const minutesEl = document.getElementById('countdown-minutes');
-    const secondsEl = document.getElementById('countdown-seconds');
-    
-    if (daysEl) daysEl.textContent = String(days).padStart(2, '0');
-    if (hoursEl) hoursEl.textContent = String(hours).padStart(2, '0');
-    if (minutesEl) minutesEl.textContent = String(minutes).padStart(2, '0');
-    if (secondsEl) secondsEl.textContent = String(seconds).padStart(2, '0');
-  }
-  
-  // Update immediately
-  updateCountdown();
-  
-  // Update every second
-  setInterval(updateCountdown, 1000);
-</script>

@@ -14,6 +14,7 @@ export interface AgendaItem {
   type?: "Keynote" | "Security" | "Scaling" | "Architecture" | "Cloud Native";
   speaker?: Speaker;
   isBreak?: boolean;
+  videoUrl?: string;
 }
 
 export interface PreviousEdition {
