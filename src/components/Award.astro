@@ -1,5 +1,8 @@
 ---
 import Reveal from './Reveal.astro';
+import { SPEAKERS } from '../constants';
+
+const localExpertWinner = SPEAKERS.find((s) => s.name === 'Jorge Pérez')!;
 ---
 
 <div
@@ -26,7 +29,7 @@ import Reveal from './Reveal.astro';
             Este galardón anual destaca a un líder excepcional de la comunidad local en Logroño.
           </p>
           <p class="text-gray-600 dark:text-gray-300 text-sm md:text-base leading-relaxed">
-            El premio 2026 se otorgará durante KubeFest. El equipo de KubeFest seleccionará directamente a la persona reconocida según los criterios públicos, y el ganador será anunciado días después del evento.
+            El ganador del premio Local Expert 2026 es <strong class="text-slate-800 dark:text-white">Jorge Pérez</strong>.
           </p>
         </div>
         <div class="flex flex-wrap justify-center md:justify-start gap-4 mt-6 md:mt-4">
@@ -43,26 +46,28 @@ import Reveal from './Reveal.astro';
         <div class="award-card relative bg-white dark:bg-card-dark rounded-2xl p-2 border border-gray-200 dark:border-white/10 shadow-2xl overflow-hidden group">
           <div class="absolute inset-0 bg-gradient-to-br from-secondary/5 via-transparent to-cncf-blue/5 opacity-50"></div>
           <div class="relative rounded-xl overflow-hidden min-h-[280px] md:aspect-[4/3] bg-gray-100 dark:bg-[#0B1120] flex flex-col items-center justify-center text-center p-5 md:p-8">
-            <div class="award-icon-container size-16 md:size-24 mb-3 md:mb-6">
-              <div class="award-icon-inner">
-                <div class="award-icon-front size-16 md:size-24 rounded-full bg-gradient-to-br from-secondary to-accent-pink flex items-center justify-center shadow-lg">
-                  <span class="material-symbols-outlined text-3xl md:text-5xl text-white">emoji_events</span>
-                </div>
-                <div class="award-icon-back size-16 md:size-24 rounded-full bg-gradient-to-br from-cncf-blue to-secondary flex items-center justify-center shadow-lg">
-                  <span class="material-symbols-outlined text-3xl md:text-5xl text-white">help</span>
-                </div>
-              </div>
-            </div>
-            <h3 class="text-slate-900 dark:text-white text-lg md:text-2xl font-bold mb-1.5 md:mb-2">Ganador 2026</h3>
-            <p class="text-gray-500 dark:text-gray-400 text-xs md:text-sm mb-3 md:mb-6 px-2 leading-relaxed">
-              El premio se otorgará durante KubeFest y el ganador será anunciado días después del evento.
-            </p>
-            <div class="w-full max-w-[200px] md:max-w-none h-1.5 md:h-2 bg-gray-200 dark:bg-white/10 rounded-full overflow-hidden">
-              <div class="relative h-full w-3/4 rounded-full bg-gradient-to-r from-secondary to-accent-pink">
-                <div class="progress-sheen"></div>
-              </div>
-            </div>
-            <p class="text-[10px] md:text-xs text-secondary font-bold mt-2 md:mt-3 uppercase tracking-wider">Anuncio Pendiente</p>
+            <h3 class="text-slate-900 dark:text-white text-lg md:text-2xl font-bold mb-4 md:mb-5">Ganador 2026</h3>
+            <a
+              href={localExpertWinner.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex flex-col items-center gap-2 mb-3 group/link"
+            >
+              <span id="award-winner-photo" class="award-winner-avatar relative inline-block">
+                <img
+                  src={localExpertWinner.image}
+                  alt={localExpertWinner.name}
+                  class="size-20 md:size-28 rounded-full object-cover border-4 border-white/20 shadow-xl ring-2 ring-secondary/40 group-hover/link:ring-secondary/70 transition-all"
+                />
+                <span class="award-badge absolute -bottom-0.5 -right-0.5 flex size-9 md:size-10 items-center justify-center rounded-full bg-gradient-to-br from-secondary to-accent-pink shadow-lg ring-2 ring-gray-100 dark:ring-[#0B1120]" aria-hidden="true">
+                  <svg class="size-5 md:size-6 text-white shrink-0" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M19 5h-2V3H7v2H5c-1.1 0-2 .9-2 2v1c0 2.55 1.92 4.63 4.39 4.94.63 1.5 1.98 2.63 3.61 2.96V19H7v2h10v-2h-4v-3.1c1.63-.33 2.98-1.46 3.61-2.96 2.47-.31 4.39-2.39 4.39-4.94V7c0-1.1-.9-2-2-2zM5 8V7h2v3.82C5.84 10.4 5 9.3 5 8zm14 0c0 1.3-.84 2.4-2 2.82V7h2v1z"/>
+                  </svg>
+                </span>
+              </span>
+              <span class="text-slate-800 dark:text-white font-semibold text-sm md:text-base">{localExpertWinner.name}</span>
+              <span class="text-gray-500 dark:text-gray-400 text-xs">{localExpertWinner.role} · {localExpertWinner.company}</span>
+            </a>
           </div>
         </div>
         <div
@@ -182,6 +187,34 @@ import Reveal from './Reveal.astro';
   });
 
   attachCloseListeners();
+
+  // Confetti when the winner's photo comes into view (once)
+  const winnerPhoto = document.getElementById('award-winner-photo');
+  if (winnerPhoto) {
+    let confettiFired = false;
+    const confettiObserver = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting || confettiFired) return;
+        confettiFired = true;
+        // @ts-expect-error - ESM CDN import for confetti
+        import('https://esm.sh/canvas-confetti@1.9.2').then(({ default: confetti }) => {
+          const colors = ['#d62293', '#6c63ff', '#00d4aa', '#ffd93d'];
+          confetti({
+            particleCount: 80,
+            spread: 70,
+            origin: { y: 0.6 },
+            colors,
+          });
+          setTimeout(() => {
+            confetti({ particleCount: 40, spread: 100, origin: { y: 0.7 }, colors });
+          }, 200);
+        });
+        confettiObserver.disconnect();
+      },
+      { threshold: 0.5, rootMargin: '0px' }
+    );
+    confettiObserver.observe(winnerPhoto);
+  }
 </script>
 
 <style>
@@ -212,33 +245,8 @@ import Reveal from './Reveal.astro';
     cursor: default;
   }
 
-  .award-icon-container {
-    perspective: 1000px;
-  }
-
-  .award-icon-inner {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    transform-style: preserve-3d;
-    transition: transform 0.6s ease;
-  }
-
-  .award-card:hover .award-icon-inner {
-    transform: rotateY(180deg);
-  }
-
-  .award-icon-front,
-  .award-icon-back {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    backface-visibility: hidden;
-    -webkit-backface-visibility: hidden;
-  }
-
-  .award-icon-back {
-    transform: rotateY(180deg);
+  .award-winner-avatar {
+    display: inline-block;
   }
 </style>
 
